@@ -1,0 +1,23 @@
+/* childcard.css */
+.childcard {
+    border: 2px solid rgb(217, 141, 0); /* 巧克力色的矩形边框 */
+    border-radius: 5px; /* 圆角半径，根据需要调整 */
+    width: auto; /* 卡片宽度，根据需要调整 */
+    margin: 10px; /* 外边距，根据需要调整 */
+  }
+  
+  .childcard-header {
+    background-color: blanchedalmond; /* 浅色橙色的标题栏背景 */
+    color: chocolate; /* 标题栏文字颜色 */
+    padding: 5px; /* 标题栏内边距，根据需要调整 */
+    text-align: center; /* 文字居中 */
+    font-weight: bold; /* 文字加粗 */
+    font-size: small;
+    border-top-left-radius: 3px; /* 标题栏顶部左边角的圆角 */
+    border-top-right-radius: 3px; /* 标题栏顶部右边角的圆角 */
+  }
+  
+  .childcard-content {
+    padding: 20px; /* 内容区域内边距，根据需要调整 */
+  }
+  

@@ -1,0 +1,44 @@
+.toolbar {
+    display: flex;
+    justify-content: space-between; /* 左右对齐 */
+    align-items: center; /* 垂直居中对齐 */
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  .search-input {
+    width: 200px;
+    height: 30px;
+    border: 1px solid chocolate;
+    border-radius: 50px;
+    padding-left: 15px;
+    outline: none;
+    font-size: 16px;
+  }
+  
+  .restriction {
+    display: inline-block;
+    gap: 10px;
+  }
+  
+/* 基本按钮样式 */
+button {
+    width: 80px;
+    height: 33px;
+    display: inline-block;
+    background-color: chocolate;
+    color: #fff;
+    border: none;
+    border-radius: 5px; /* 圆角半径，根据需要调整 */
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 15px;
+  }
+  
+  /* 激活（点击）时的样式 */
+  button:active {
+    background-color: lightsalmon; /* 修改激活时的背景颜色 */
+  }
+  
+  

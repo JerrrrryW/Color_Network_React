@@ -1,0 +1,54 @@
+/* 基本样式 */
+.custom-select {
+    position: relative;
+    display: inline;
+    width: 200px;
+    font-size: 16px;
+  }
+  
+  .custom-select select {
+    appearance: none;
+    border: 1px solid chocolate; /* 边框样式 */
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    color: chocolate; /* 文本颜色为白色 */
+    margin-right: 5px;
+  }
+  
+  .custom-select select::after {
+    content: '▼'; /* ▼ */
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+    background-color: chocolate; /* 橙色，巧克力色 */
+    color: #fff; /* 文本颜色为白色 */
+    pointer-events: none; /* 阻止鼠标事件 */
+  }
+  
+  /* 鼠标悬停时样式 */
+  .custom-select select:hover {
+    background-color: lightgoldenrodyellow; /* 鼠标悬停时的颜色 */
+  }
+  
+  /* 获得焦点时样式 */
+  .custom-select select:focus {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* 自定义焦点样式 */
+  }
+  
+  /* 下拉列表样式 */
+  .custom-select select option {
+    background-color: #D2691E; /* 橙色，巧克力色 */
+    color: #fff; /* 文本颜色为白色 */
+    padding: 10px;
+    border: none; /* 去除边框 */
+    width: auto; /* 让选项水平排布 */
+  }
+  
+  /* 下拉列表水平排布 */
+  .custom-select select {
+    width: auto; /* 让下拉框的宽度适应内容 */
+  }
+  
