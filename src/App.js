@@ -20,7 +20,7 @@ function App() {
         </div>
         <div id='color-network' className='card'>
           <h3>Color Network</h3>
-          <RelationshipGraph />
+          <RelationshipGraph className='chart'/>
         </div>
         <div id='node-heatmap' className='card'>
           <h3>Node Heatmap</h3>
@@ -30,7 +30,6 @@ function App() {
         </div>
         <div id='color-search' className='card'>
           <h3>Color Search</h3>
-          <RelationshipGraph />
           <ChildCard title="NODE STATISTICS">
             <p>TreeMap Chart</p>
           </ChildCard>

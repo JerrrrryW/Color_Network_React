@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ReactEcharts from 'echarts-for-react';
 
-class RelationshipGraph extends Component {
-  getOption = () => {
+function RelationshipGraph() {
+  const chartRef = useRef(null);
+  const [nodes, setNodes] = useState([]);
+  const [links, setLinks] = useState([]);
+
+  const getOption = () => {
     return {
-      title: {
-        text: '社交网络关系图',
-        left: 'center',
-      },
       tooltip: {},
       animationDurationUpdate: 1500,
       animationEasingUpdate: 'quinticInOut',
@@ -21,57 +21,45 @@ class RelationshipGraph extends Component {
             gravity: 0.1,
           },
           symbolSize: 50,
-          edgeSymbol: ['circle', 'arrow'],
+          edgeSymbol: ['circle'],
           edgeSymbolSize: [4, 10],
           edgeLabel: {
-            normal: {
-              show: true,
-              textStyle: {
-                fontSize: 10,
-              },
-              formatter: '{c}',
-            },
+            normal: {show: false},
           },
-          data: [
-            {
-              name: 'Alice',
-              draggable: true,
-            },
-            {
-              name: 'Bob',
-              draggable: true,
-            },
-            {
-              name: 'Charlie',
-              draggable: true,
-            },
-            {
-              name: 'David',
-              draggable: true,
-            },
-            {
-              name: 'Eva',
-              draggable: true,
-            },
-          ],
-          links: [
-            { source: 'Alice', target: 'Bob', label: '朋友' },
-            { source: 'Alice', target: 'Charlie', label: '朋友' },
-            { source: 'Bob', target: 'David', label: '家人' },
-            { source: 'Charlie', target: 'Eva', label: '同事' },
-          ],
+          data: nodes, // Use the loaded nodes data here
+          links: links, // Use the loaded links data here
         },
       ],
     };
   };
 
-  render() {
-    return (
-      <div style={{ width: '100%', height: '100%' }}>
-        <ReactEcharts option={this.getOption()} />
-      </div>
-    );
-  }
+  useEffect(() => {
+    // Fetch nodes data
+    fetch('/data/nodes.json')
+      .then((response) => response.json())
+      .then((data) => {
+        setNodes(data);
+      })
+      .catch((error) => {
+        console.error('Error loading nodes JSON:', error);
+      });
+
+    // Fetch links data
+    fetch('/data/links.json')
+      .then((response) => response.json())
+      .then((data) => {
+        setLinks(data);
+      })
+      .catch((error) => {
+        console.error('Error loading links JSON:', error);
+      });
+  }, []);
+
+  return (
+    <div style={{ width: '100%', height: '100%' }}>
+      <ReactEcharts ref={chartRef} option={getOption()} />
+    </div>
+  );
 }
 
 export default RelationshipGraph;
