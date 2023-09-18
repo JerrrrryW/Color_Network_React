@@ -3,8 +3,9 @@ import './App.css';
 import './Components/select.css';
 
 import Toolbar from './Components/Toolbar';
-import RelationshipGraph from './Echarts/RealtionshipGraph';
 import ChildCard from './Components/ChildCard';
+import RelationshipGraph from './Echarts/RealtionshipGraph';
+import BarChart from './Echarts/BarChart';
 
 function App() {
   return (
@@ -17,10 +18,19 @@ function App() {
         <div id='node-attributes' className='card'>
           <h3>Node Attributes</h3>
           <ChildCard title="CURRENT NODE" />
+          <div className="horizontal-flex">
+            <ChildCard title="DEGREE" style={{flex:'1', marginTop:'0', marginRight:'5px'}}>
+              <BarChart />
+            </ChildCard>
+            <ChildCard title="CENTRALITY" style={{flex:'1', marginTop:'0', marginLeft:'5px'}}>
+              A
+              <BarChart />
+            </ChildCard>
+          </div>
         </div>
         <div id='color-network' className='card'>
           <h3>Color Network</h3>
-          <RelationshipGraph className='chart'/>
+          <RelationshipGraph />
         </div>
         <div id='node-heatmap' className='card'>
           <h3>Node Heatmap</h3>

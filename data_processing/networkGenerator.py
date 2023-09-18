@@ -26,7 +26,7 @@ def load_relative_data(w_min=None, filter_list=None, src='./data_processing/data
                 continue
             links.append({"source": source.strip(), "target": target.strip(), "value": weight.strip(),
                           "lineStyle": {"width": edge_width,
-                                        "color": f"rgba({grayscale}, {grayscale}, {grayscale}, 0.3)"}})
+                                        "color": f"rgba({grayscale}, {grayscale}, {grayscale}, 0.7)"}})
             nxg.add_edge(source.strip(), target.strip(), weight=float(weight))
             node_degrees[source] += 1
             node_degrees[target] += 1

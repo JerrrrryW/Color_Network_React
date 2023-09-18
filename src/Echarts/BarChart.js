@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import * as echarts from 'echarts';
 
-const EChartsBarChart = () => {
+const BarChart = () => {
   useEffect(() => {
     // 创建一个ECharts实例并将其挂载到指定的DOM元素上
     const chartContainer = document.getElementById('echarts-bar-chart');
@@ -10,18 +10,30 @@ const EChartsBarChart = () => {
     // 定义图表配置项
     const option = {
       title: {
-        text: '柱状图示例',
+        show: false,
       },
-      tooltip: {},
       xAxis: {
-        data: ['项目1', '项目2', '项目3', '项目4', '项目5'],
+        type: 'value',
+        show: false,
       },
-      yAxis: {},
+      yAxis: {
+        show: false,
+        type: 'category',
+        data: ['A', 'B', 'C', 'D', 'E', 'A', 'B', 'C', 'D', 'E', 'A', 'B', 'C', 'D', 'E'],
+      },
       series: [
         {
-          name: '销量',
+          data: [30, 40, 25, 50, 45, 30, 40, 25, 50, 45, 30, 40, 25, 50, 45],
           type: 'bar',
-          data: [150, 230, 224, 218, 135],
+          barWidth: 10,  // 控制柱子宽度
+          itemStyle: {
+            borderRadius: [0, 10, 10, 0],  // 圆角设置
+          },
+          label: {
+            show: false,
+            position: 'right',  // 标签位置
+            color: '#333',  // 标签文字颜色
+          },
         },
       ],
     };
@@ -40,4 +52,4 @@ const EChartsBarChart = () => {
   );
 };
 
-export default EChartsBarChart;
+export default BarChart;

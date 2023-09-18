@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import ReactEcharts from 'echarts-for-react';
 
+
 function RelationshipGraph() {
   const chartRef = useRef(null);
   const [nodes, setNodes] = useState([]);
@@ -17,7 +18,7 @@ function RelationshipGraph() {
           layout: 'force',
           roam: true,
           force: {
-            repulsion: 100,
+            repulsion: 400,
             gravity: 0.1,
           },
           symbolSize: 50,
@@ -56,9 +57,7 @@ function RelationshipGraph() {
   }, []);
 
   return (
-    <div style={{ width: '100%', height: '100%' }}>
-      <ReactEcharts ref={chartRef} option={getOption()} />
-    </div>
+    <ReactEcharts ref={chartRef} option={getOption()} style={{ width: '100%', height: '100%' }} />
   );
 }
 
