@@ -8,7 +8,6 @@ const RelationshipGraph = React.memo(({
   setIsNodeChanged,
   setNodeData,
 }) => {
-
   function rgbToHex(r, g, b) {
     // 使用toString(16)将数值转换为十六进制，并确保结果为两位数
     const toHex = (value) => {
