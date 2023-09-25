@@ -13,7 +13,6 @@ function Node({
   const [bardata, setbardata] = useState([10, 0.01, 0.47, 1, 7.14]);
 
   useEffect(() => {
-    console.log(nodedata)
 
     setcolor(nodedata.color);
     settext(nodedata.name);

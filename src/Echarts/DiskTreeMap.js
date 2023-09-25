@@ -1,69 +1,70 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as echarts from 'echarts';
 
 function DiskTreeMap(disktreemapdata){
+  const [diskdata,setdiskdata] = useState([
+    {
+      "value": 2,
+      "name": "形制",
+      "children":[
+        {
+          "value": 2,
+          "name": "形",
+        },
+      ]
+    },
+
+    {
+      "value": 10,
+      "name": "材质",
+      "children": [
+        {
+          "value": 5,
+          "name": "绢本1",
+        },
+        {
+          "value": 5,
+          "name": "绢本2",
+        },
+      ]
+    },
+    {
+      "value": 2,
+      "name": "类型",
+      "children": [
+        {
+          "value": 2,
+          "name": "重设色",
+        },
+      ]
+    },
+
+    {
+      "value": 2,
+      "name": "朝代",
+      "children": [
+        {
+          "value": 2,
+          "name": "朝代",
+        },
+      ]
+    },
+    {
+      "value": 5,
+      "name": "题材",
+      "children": [
+        {
+          "value": 5,
+          "name": "山水",
+        },
+      ]
+    },
+])
   useEffect(() => {
     // 创建一个ECharts实例并将其挂载到指定的DOM元素上
     const chartContainer = document.getElementById('echarts-disktreemap');
     const chart = echarts.init(chartContainer);
-    const diskdata = [
-          {
-            "value": 2,
-            "name": "形制",
-            "children":[
-              {
-                "value": 2,
-                "name": "形",
-              },
-            ]
-          },
-
-          {
-            "value": 10,
-            "name": "材质",
-            "children": [
-              {
-                "value": 1,
-                "name": "绢本",
-              },
-              {
-                "value": 9,
-                "name": "绢本2",
-              },
-            ]
-          },
-          {
-            "value": 2,
-            "name": "类型",
-            "children": [
-              {
-                "value": 2,
-                "name": "重设色",
-              },
-            ]
-          },
-
-          {
-            "value": 2,
-            "name": "朝代",
-            "children": [
-              {
-                "value": 2,
-                "name": "朝代",
-              },
-            ]
-          },
-          {
-            "value": 5,
-            "name": "题材",
-            "children": [
-              {
-                "value": 5,
-                "name": "山水",
-              },
-            ]
-          },
-    ]
+    setdiskdata(disktreemapdata)
     
     // 定义图表配置项
     const option = {
@@ -131,6 +132,7 @@ function DiskTreeMap(disktreemapdata){
 
     // 使用配置项渲染图表
     chart.setOption(option);
+    console.log("option",option.series);
     // console.log('data:',option);
     // 在组件卸载时销毁图表，防止内存泄漏
     return () => {

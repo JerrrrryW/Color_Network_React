@@ -7,6 +7,7 @@ const RelationshipGraph = React.memo(({
   Option , 
   setIsNodeChanged,
   setNodeData,
+  setdisktreemapdata,
 }) => {
   function rgbToHex(r, g, b) {
     // 使用toString(16)将数值转换为十六进制，并确保结果为两位数
@@ -147,8 +148,103 @@ const RelationshipGraph = React.memo(({
           rgb: {r: jsondata[params.data.name].r, g: jsondata[params.data.name].g, b: jsondata[params.data.name].b},
           bardata: [jsondata[params.data.name].degree, jsondata[params.data.name].BC, jsondata[params.data.name].CC, jsondata[params.data.name].EC, jsondata[params.data.name].weight],
         }
-        console.log("SENT:",nodeData)
+        const disktreemapdata = 
+        [
+                {
+                  "value": jsondata[params.data.name].data['立轴']+jsondata[params.data.name].data['团扇']+jsondata[params.data.name].data['册页']+jsondata[params.data.name].data['手卷'],
+                  "name": "形制",
+                  "children": [
+                    {
+                      "value": jsondata[params.data.name].data['立轴'],
+                      "name": "立轴",
+                    },
+                    {
+                      "value": jsondata[params.data.name].data['团扇'],
+                      "name": "团扇",
+                    },
+                    {
+                      "value": jsondata[params.data.name].data['册页'],
+                      "name": "册页",
+                    },
+                    {
+                      "value": jsondata[params.data.name].data['手卷'],
+                      "name": "手卷",
+                    },
+                  ]
+                },
+                {
+                  "value": jsondata[params.data.name].data['绢本']+jsondata[params.data.name].data['纸本'],
+                  "name": "材质",
+                  "children": [
+                    {
+                      "value": jsondata[params.data.name].data['绢本'],
+                      "name": "绢本",
+                    },
+                    {
+                      "value": jsondata[params.data.name].data['纸本'],
+                      "name": "纸本",
+                    },
+                  ]
+                },
+                {
+                  "value": jsondata[params.data.name].data['大青绿']+jsondata[params.data.name].data['浅设色']+jsondata[params.data.name].data['水墨']+jsondata[params.data.name].data['水墨浅绛']+jsondata[params.data.name].data['线描']+jsondata[params.data.name].data['小青绿']+jsondata[params.data.name].data['重设色'],
+                  "name": "类型",
+                  "children": [
+                    {
+                      "value": jsondata[params.data.name].data['大青绿'],
+                      "name": "大青绿",
+                    },
+                    {
+                      "value": jsondata[params.data.name].data['浅设色'],
+                      "name": "浅设色",
+                    },
+                    {
+                      "value": jsondata[params.data.name].data['水墨'],
+                      "name": "水墨",
+                    },
+                    {
+                      "value": jsondata[params.data.name].data['水墨浅绛'],
+                      "name": "水墨浅绛",
+                    },
+                    {
+                      "value": jsondata[params.data.name].data['线描'],
+                      "name": "线描",
+                    },
+                    {
+                      "value": jsondata[params.data.name].data['小青绿'],
+                      "name": "小青绿",
+                    },
+                    {
+                      "value": jsondata[params.data.name].data['重设色'],
+                      "name": "重设色",
+                    },
+                  ]
+                },
+            
+                {
+                  "value": jsondata[params.data.name].data.id.length,
+                  "name": "朝代",
+                  "children": [
+                    {
+                      "value": jsondata[params.data.name].data.id.length,
+                      "name": "宋朝",
+                    },
+                  ]
+                },
+                {
+                  "value": jsondata[params.data.name].data.id.length,
+                  "name": "题材",
+                  "children": [
+                    {
+                      "value": jsondata[params.data.name].data.id.length,
+                      "name": "山水",
+                    },
+                  ]
+                },
+        ];
+        console.log("SENT:",disktreemapdata)
         setNodeData(nodeData)
+        setdisktreemapdata(disktreemapdata)
       }
     });
   }, []);
