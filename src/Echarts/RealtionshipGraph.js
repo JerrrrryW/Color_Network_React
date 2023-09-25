@@ -158,6 +158,6 @@ function RelationshipGraph({ Option ,onNodeClick}) {
   return (
     <ReactEcharts ref={chartRef} option={ecOption} style={{ width: '100%', height: '100%' }} />
   );
-});
+}});
 
 export default RelationshipGraph;
