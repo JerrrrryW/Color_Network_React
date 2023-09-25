@@ -23,8 +23,6 @@ const RelationshipGraph = React.memo(({
     return `#${redHex}${greenHex}${blueHex}`;
   }
 
-
-function RelationshipGraph({ Option ,onNodeClick}) {
   const chartRef = useRef(null);
   const [nodes, setNodes] = useState([]);
   const [links, setLinks] = useState([]);
@@ -158,6 +156,6 @@ function RelationshipGraph({ Option ,onNodeClick}) {
   return (
     <ReactEcharts ref={chartRef} option={ecOption} style={{ width: '100%', height: '100%' }} />
   );
-}});
+});
 
 export default RelationshipGraph;
