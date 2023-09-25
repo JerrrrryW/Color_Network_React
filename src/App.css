@@ -78,3 +78,15 @@ h3 {
   grid-row: 2;
   grid-column: 2/4;
 }
+
+#color-network-2 {
+  display: flex;
+  justify-content: space-between; /* 左右两侧对齐 */
+  align-items: center; /* 垂直居中对齐 */
+}
+
+#node-heatmap-2 {
+  display: flex;
+  justify-content: space-between; /* 左右两侧对齐 */
+  align-items: center; /* 垂直居中对齐 */
+}
