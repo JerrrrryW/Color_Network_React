@@ -23,6 +23,8 @@ const RelationshipGraph = React.memo(({
     return `#${redHex}${greenHex}${blueHex}`;
   }
 
+
+function RelationshipGraph({ Option ,onNodeClick}) {
   const chartRef = useRef(null);
   const [nodes, setNodes] = useState([]);
   const [links, setLinks] = useState([]);
