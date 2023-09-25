@@ -9,6 +9,13 @@ const BarChart = () => {
 
     // 定义图表配置项
     const option = {
+      grid: {
+        left: 0,
+        right: 0,
+        bottom: 0,
+        top:0,
+        containLabel: true
+      },
       title: {
         show: false,
       },
@@ -17,8 +24,17 @@ const BarChart = () => {
         show: false,
       },
       yAxis: {
-        show: false,
+        show: true,
         type: 'category',
+        splitLine: {
+          show: false // 设置为false即可隐藏y轴上的网格线
+        },
+        axisTick: {
+          show: false
+        },
+        axisLine: {
+          show: false // 设置为false即可隐藏x轴线
+        },
         data: ['A', 'B', 'C', 'D', 'E', 'A', 'B', 'C', 'D', 'E', 'A', 'B', 'C', 'D', 'E'],
       },
       series: [
@@ -27,7 +43,12 @@ const BarChart = () => {
           type: 'bar',
           barWidth: 10,  // 控制柱子宽度
           itemStyle: {
-            borderRadius: [0, 10, 10, 0],  // 圆角设置
+            emphasis: {
+              barBorderRadius: 9
+            },
+            normal: {
+              barBorderRadius: 9
+            }
           },
           label: {
             show: false,
