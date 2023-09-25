@@ -17,12 +17,13 @@ import nodes from './nodes.json'
 
 function App() {
   const [Option, setOption] = useState(null);
-  const [nodecolor, setnodecolor] = useState(null);
-  const [nodename, setnodename] = useState(null);
-  const [noder, setnoder] = useState(null);
-  const [nodeg, setnodeg] = useState(null);
-  const [nodeb, setnodeb] = useState(null);
-  const [bardata, setbardata] = useState(null);
+  const [nodename, setnodename] = useState('C41');
+  const [nodeData, setNodeData] = useState({
+    color: '#7f0000',
+    name: 'C41',
+    rgb: { r: 127, g: 0, b: 0 },
+    bardata: [10, 0.01, 0.47, 1, 7.14],
+  });
   const [disktreemapdata,setdisktreemapdata] = useState([
     {
       "value": 0,
@@ -119,6 +120,8 @@ function App() {
       ]
     },
   ]);
+  const [isNodeChanged, setIsNodeChanged] = useState(false);
+
   const setSelectedOption = (data) => {
     setOption(data);
   }
@@ -142,111 +145,112 @@ function App() {
   }
 
   // 处理节点点击事件，将节点的value值保存到状态中
-  const handleNodeClick = (value) => {
-    setnodename(value);
-    // setnodecolor(rgbToHex(nodes[value].r, nodes[value].g, nodes[value].b));
-    // setnoder(nodes[value].r);
-    // setnodeg(nodes[value].g);
-    // setnodeb(nodes[value].b);
-    // setbardata([nodes[value].degree, nodes[value].BC, nodes[value].CC, nodes[value].EC, nodes[value].weight])
-    // setdisktreemapdata([
-    //   {
-    //     "value": nodes[value].data['立轴']+nodes[value].data['团扇']+nodes[value].data['册页']+nodes[value].data['手卷'],
-    //     "name": "形制",
-    //     "children": [
-    //       {
-    //         "value": nodes[value].data['立轴'],
-    //         "name": "立轴",
-    //       },
-    //       {
-    //         "value": nodes[value].data['团扇'],
-    //         "name": "团扇",
-    //       },
-    //       {
-    //         "value": nodes[value].data['册页'],
-    //         "name": "册页",
-    //       },
-    //       {
-    //         "value": nodes[value].data['手卷'],
-    //         "name": "手卷",
-    //       },
-    //     ]
-    //   },
-    //   {
-    //     "value": nodes[value].data['绢本']+nodes[value].data['纸本'],
-    //     "name": "材质",
-    //     "children": [
-    //       {
-    //         "value": nodes[value].data['绢本'],
-    //         "name": "绢本",
-    //       },
-    //       {
-    //         "value": nodes[value].data['纸本'],
-    //         "name": "纸本",
-    //       },
-    //     ]
-    //   },
-    //   {
-    //     "value": nodes[value].data['大青绿']+nodes[value].data['浅设色']+nodes[value].data['水墨']+nodes[value].data['水墨浅绛']+nodes[value].data['线描']+nodes[value].data['小青绿']+nodes[value].data['重设色'],
-    //     "name": "类型",
-    //     "path": "类型",
-    //     "children": [
-    //       {
-    //         "value": nodes[value].data['大青绿'],
-    //         "name": "大青绿",
-    //       },
-    //       {
-    //         "value": nodes[value].data['浅设色'],
-    //         "name": "浅设色",
-    //       },
-    //       {
-    //         "value": nodes[value].data['水墨'],
-    //         "name": "水墨",
-    //       },
-    //       {
-    //         "value": nodes[value].data['水墨浅绛'],
-    //         "name": "水墨浅绛",
-    //       },
-    //       {
-    //         "value": nodes[value].data['线描'],
-    //         "name": "线描",
-    //       },
-    //       {
-    //         "value": nodes[value].data['小青绿'],
-    //         "name": "小青绿",
-    //       },
-    //       {
-    //         "value": nodes[value].data['重设色'],
-    //         "name": "重设色",
-    //       },
-    //     ]
-    //   },
+  // const handleNodeClick = (value) => {
+  //   console.log(value)
+  //   // setnodename(value);
+  //   // setnodecolor(rgbToHex(nodes[value].r, nodes[value].g, nodes[value].b));
+  //   // setnoder(nodes[value].r);
+  //   // setnodeg(nodes[value].g);
+  //   // setnodeb(nodes[value].b);
+  //   // setbardata([nodes[value].degree, nodes[value].BC, nodes[value].CC, nodes[value].EC, nodes[value].weight])
+  //   // setdisktreemapdata([
+  //   //   {
+  //   //     "value": nodes[value].data['立轴']+nodes[value].data['团扇']+nodes[value].data['册页']+nodes[value].data['手卷'],
+  //   //     "name": "形制",
+  //   //     "children": [
+  //   //       {
+  //   //         "value": nodes[value].data['立轴'],
+  //   //         "name": "立轴",
+  //   //       },
+  //   //       {
+  //   //         "value": nodes[value].data['团扇'],
+  //   //         "name": "团扇",
+  //   //       },
+  //   //       {
+  //   //         "value": nodes[value].data['册页'],
+  //   //         "name": "册页",
+  //   //       },
+  //   //       {
+  //   //         "value": nodes[value].data['手卷'],
+  //   //         "name": "手卷",
+  //   //       },
+  //   //     ]
+  //   //   },
+  //   //   {
+  //   //     "value": nodes[value].data['绢本']+nodes[value].data['纸本'],
+  //   //     "name": "材质",
+  //   //     "children": [
+  //   //       {
+  //   //         "value": nodes[value].data['绢本'],
+  //   //         "name": "绢本",
+  //   //       },
+  //   //       {
+  //   //         "value": nodes[value].data['纸本'],
+  //   //         "name": "纸本",
+  //   //       },
+  //   //     ]
+  //   //   },
+  //   //   {
+  //   //     "value": nodes[value].data['大青绿']+nodes[value].data['浅设色']+nodes[value].data['水墨']+nodes[value].data['水墨浅绛']+nodes[value].data['线描']+nodes[value].data['小青绿']+nodes[value].data['重设色'],
+  //   //     "name": "类型",
+  //   //     "path": "类型",
+  //   //     "children": [
+  //   //       {
+  //   //         "value": nodes[value].data['大青绿'],
+  //   //         "name": "大青绿",
+  //   //       },
+  //   //       {
+  //   //         "value": nodes[value].data['浅设色'],
+  //   //         "name": "浅设色",
+  //   //       },
+  //   //       {
+  //   //         "value": nodes[value].data['水墨'],
+  //   //         "name": "水墨",
+  //   //       },
+  //   //       {
+  //   //         "value": nodes[value].data['水墨浅绛'],
+  //   //         "name": "水墨浅绛",
+  //   //       },
+  //   //       {
+  //   //         "value": nodes[value].data['线描'],
+  //   //         "name": "线描",
+  //   //       },
+  //   //       {
+  //   //         "value": nodes[value].data['小青绿'],
+  //   //         "name": "小青绿",
+  //   //       },
+  //   //       {
+  //   //         "value": nodes[value].data['重设色'],
+  //   //         "name": "重设色",
+  //   //       },
+  //   //     ]
+  //   //   },
   
-    //   {
-    //     "value": nodes[value].data.id.length,
-    //     "name": "朝代",
-    //     "path": "朝代",
-    //     "children": [
-    //       {
-    //         "value": nodes[value].data.id.length,
-    //         "name": "宋朝",
-    //       },
-    //     ]
-    //   },
-    //   {
-    //     "value": nodes[value].data.id.length,
-    //     "name": "题材",
-    //     "path": "题材",
-    //     "children": [
-    //       {
-    //         "value": nodes[value].data.id.length,
-    //         "name": "山水",
-    //       },
-    //     ]
-    //   },
-    // ])
-    // console.log(disktreemapdata)
-  };
+  //   //   {
+  //   //     "value": nodes[value].data.id.length,
+  //   //     "name": "朝代",
+  //   //     "path": "朝代",
+  //   //     "children": [
+  //   //       {
+  //   //         "value": nodes[value].data.id.length,
+  //   //         "name": "宋朝",
+  //   //       },
+  //   //     ]
+  //   //   },
+  //   //   {
+  //   //     "value": nodes[value].data.id.length,
+  //   //     "name": "题材",
+  //   //     "path": "题材",
+  //   //     "children": [
+  //   //       {
+  //   //         "value": nodes[value].data.id.length,
+  //   //         "name": "山水",
+  //   //       },
+  //   //     ]
+  //   //   },
+  //   // ])
+  //   // console.log(disktreemapdata)
+  // };
 
   return (
     <div className="App">
@@ -258,7 +262,7 @@ function App() {
         <div id='node-attributes' className='card'>
           <h3>Node Attributes</h3>
           <ChildCard title="CURRENT NODE">
-            <Node color={nodecolor} text={nodename} rgb={{ r: noder, g: nodeg, b: nodeb }} bardata={bardata}></Node>
+            <Node nodedata={nodeData} isNodeChanged={isNodeChanged}/>
           </ChildCard>
           <div className="horizontal-flex">
             <ChildCard title="DEGREE" style={{ flex: '1', marginTop: '0', marginRight: '5px' }}>
@@ -271,7 +275,7 @@ function App() {
           <div id="color-network-2">
             <h3>Color Network</h3><button onClick={setSelectedOption2}>Transform</button>
           </div>
-          <RelationshipGraph Option={Option} onNodeClick={handleNodeClick} />
+          <RelationshipGraph Option={Option} setIsNodeChanged={setIsNodeChanged} setNodeData={setNodeData}/>
         </div>
         <div id='node-heatmap' className='card'>
           <div id="node-heatmap-2">

@@ -131,7 +131,7 @@ function DiskTreeMap(disktreemapdata){
 
     // 使用配置项渲染图表
     chart.setOption(option);
-    console.log('data:',option);
+    // console.log('data:',option);
     // 在组件卸载时销毁图表，防止内存泄漏
     return () => {
       chart.dispose();
