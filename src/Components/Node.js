@@ -1,9 +1,25 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as echarts from 'echarts';
 import './Node.css'; // 引入样式文件
 
-function Node({color,text,rgb,bardata}) {
+function Node({
+  nodedata,
+  isNodeChanged,
+}) {
+
+  const [color, setcolor] = useState('#7f0000');
+  const [text, settext] = useState('C41');
+  const [rgb, setrgb] = useState({r:127,g:0,b:0});
+  const [bardata, setbardata] = useState([10, 0.01, 0.47, 1, 7.14]);
+
   useEffect(() => {
+    console.log(nodedata)
+
+    setcolor(nodedata.color);
+    settext(nodedata.name);
+    setrgb(nodedata.rgb);
+    setbardata(nodedata.bardata);
+
     // 创建一个ECharts实例并将其挂载到指定的DOM元素上
     const chartContainer = document.getElementById('node-right');
     const chart = echarts.init(chartContainer);
@@ -61,7 +77,8 @@ function Node({color,text,rgb,bardata}) {
     return () => {
       chart.dispose();
     };
-  }, [bardata]);
+  }, [isNodeChanged]);
+
   return (
     <div className="node">
       <div className='node-left'>

@@ -1,8 +1,29 @@
 import React, { useEffect, useRef, useState } from 'react';
 import ReactEcharts from 'echarts-for-react';
+import jsondata from '../nodes.json'
 
 
-function RelationshipGraph({ Option ,onNodeClick}) {
+function RelationshipGraph({ 
+  Option , 
+  setIsNodeChanged,
+  setNodeData,
+}) {
+
+  function rgbToHex(r, g, b) {
+    // 使用toString(16)将数值转换为十六进制，并确保结果为两位数
+    const toHex = (value) => {
+      const hex = value.toString(16);
+      return hex.length === 1 ? `0${hex}` : hex;
+    };
+
+    const redHex = toHex(r);
+    const greenHex = toHex(g);
+    const blueHex = toHex(b);
+
+    // 返回带有 "#" 前缀的十六进制字符串
+    return `#${redHex}${greenHex}${blueHex}`;
+  }
+
   const chartRef = useRef(null);
   const [nodes, setNodes] = useState([]);
   const [links, setLinks] = useState([]);
@@ -76,7 +97,7 @@ function RelationshipGraph({ Option ,onNodeClick}) {
 
   const ecOption = {
       tooltip: {},
-      animationDurationUpdate: 1500,
+      animationDurationUpdate: 500,
       animationEasingUpdate: 'quinticInOut',
       series: [
         {
@@ -117,8 +138,18 @@ function RelationshipGraph({ Option ,onNodeClick}) {
   useEffect(() => {
     const chart = chartRef.current.getEchartsInstance();
     chart.on('click', (params) => {
+      // console.log("CLICKED:",params)
       if (params.data.name) {
-        onNodeClick(params.data.name);
+        setIsNodeChanged(current => !current)
+        console.log("CLICKED:",jsondata[params.data.name])
+        const nodeData = {
+          name: params.data.name,
+          color: rgbToHex(jsondata[params.data.name].r, jsondata[params.data.name].g, jsondata[params.data.name].b),
+          rgb: {r: jsondata[params.data.name].r, g: jsondata[params.data.name].g, b: jsondata[params.data.name].b},
+          bardata: [jsondata[params.data.name].degree, jsondata[params.data.name].BC, jsondata[params.data.name].CC, jsondata[params.data.name].EC, jsondata[params.data.name].weight],
+        }
+        console.log("SENT:",nodeData)
+        setNodeData(nodeData)
       }
     });
   }, []);
