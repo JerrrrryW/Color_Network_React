@@ -17,6 +17,7 @@ import BarChart2 from './Echarts/BarChart2';
 import Artwork from './Components/Artwork';
 import RGB from './Components/RGB'
 import ColorConverter from './Components/ColorConverter'
+import Slider from './Components/Slider'
 
 function App() {
   const [Option, setOption] = useState(null);
@@ -169,7 +170,7 @@ function App() {
         </div>
         <div id='color-network' className='card'>
           <div id="color-network-2">
-            <h3>Color Network</h3><button onClick={setSelectedOption2}>Transform</button>
+            <h3>Color Network</h3><Slider></Slider> <button onClick={setSelectedOption2}>Transform</button>
           </div>
           <RelationshipGraph Option={Option} setIsNodeChanged={setIsNodeChanged} setNodeData={setNodeData} setdisktreemapdata={setdisktreemapdata}/>
         </div>

@@ -1,0 +1,48 @@
+/* Slider.css */
+.slider-container {
+    display: flex;
+    align-items: center;
+  } 
+.slider {
+width: 100%;
+-webkit-appearance: none;
+appearance: none;
+margin: 0;
+outline: 0;
+background-color: transparent;
+width: 150px;
+}
+
+.value-display {
+margin-left: auto;
+}
+  
+  
+.slider::-webkit-slider-runnable-track {
+    height: 20px;
+    background: rgb(255, 255, 255);
+}
+  
+  .slider::-webkit-slider-container {
+    height: 20px;
+    overflow: hidden;
+}
+  
+  /* 修改滑动条覆盖部分的颜色 */
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #d67506;
+    border: 1px solid transparent;
+    margin-top: 0px;
+    border-image: linear-gradient(#d67506,#d67506) 0 fill / 8 20 8 0 / 0px 0px 0 2000px;
+}
+  
+  
+  
+  
+  
+  
