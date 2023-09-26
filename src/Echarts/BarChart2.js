@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import * as echarts from 'echarts';
 
-const BarChart = () => {
+const BarChart2 = () => {
   useEffect(() => {
     // 创建一个ECharts实例并将其挂载到指定的DOM元素上
-    const chartContainer = document.getElementById('echarts-bar-chart');
+    const chartContainer = document.getElementById('echarts-bar-chart2');
     const chart = echarts.init(chartContainer);
 
     // 定义图表配置项
@@ -35,99 +35,99 @@ const BarChart = () => {
         axisLine: {
           show: false // 设置为false即可隐藏x轴线
         },
-        data: ['C46', 'C44', 'C45', 'C43', 'C48', 'C47', 'C34', 'C37', 'C36', 'C40', 'C35', 'C38', 'C41', 'C33', 'C42'],
+        data: ['C47', 'C48', 'C45', 'C43', 'C20', 'C56', 'C34', 'C37', 'C36', 'C40', 'C42', 'C35', 'C38', 'C41', 'C33'],
       },
       series: [
         {
           data: [
             {
-              value: 5,
-              itemStyle: {
-                color: '#321505'
-              }
-            },
-            {
-              value: 5,
-              itemStyle: {
-                color: '#856012'
-              }
-            },
-            {
-              value: 6,
-              itemStyle: {
-                color: '#362509'
-              }
-            },
-            {
-              value: 6,
-              itemStyle: {
-                color: '#555500'
-              }
-            },
-            {
-              value: 6,
-              itemStyle: {
-                color: '#7f3f00'
-              }
-            },
-            {
-              value: 6,
+              value: 0.15,
               itemStyle: {
                 color: '#59410a'
               }
             },
             {
-              value: 8,
+              value: 0.15,
+              itemStyle: {
+                color: '#7f3f00'
+              }
+            },
+            {
+              value: 0.25,
+              itemStyle: {
+                color: '#362509'
+              }
+            },
+            {
+              value: 0.25,
+              itemStyle: {
+                color: '#555500'
+              }
+            },
+            {
+              value: 0.47,
+              itemStyle: {
+                color: '#464b36'
+              }
+            },
+            {
+              value: 0.47,
+              itemStyle: {
+                color: '#835943'
+              }
+            },
+            {
+              value: 0.9,
               itemStyle: {
                 color: '#152826'
               }
             },
             {
-              value: 8,
+              value: 0.9,
               itemStyle: {
                 color: '#5b6347'
               }
             },
             {
-              value: 8,
+              value: 0.9,
               itemStyle: {
                 color: '#458260'
               }
             },
             {
-              value: 8,
+              value: 0.9,
               itemStyle: {
                 color: '#1b5862'
               }
             },
             {
-              value: 10,
+              value: 0.98,
+              itemStyle: {
+                color: '#be9448'
+              }
+            },
+            {
+              value: 1,
               itemStyle: {
                 color: '#144238'
               }
             },
             {
-              value: 10,
+              value: 1,
               itemStyle: {
                 color: '#123c4c'
               }
             },
             {
-              value: 10,
+              value: 1,
               itemStyle: {
                 color: '#7f0000'
               }
             },
             {
-              value: 10,
+              value: 1,
               itemStyle: {
                 color: '#38664c'
-              }
-            },
-            {
-              value: 11,
-              itemStyle: {
-                color: '#be9448'
               }
             }
           ],
@@ -160,8 +160,8 @@ const BarChart = () => {
   }, []);
 
   return (
-    <div id="echarts-bar-chart" style={{ width: '100%', height: '350px' }}></div>
+    <div id="echarts-bar-chart2" style={{ width: '100%', height: '350px' }}></div>
   );
 };
 
-export default BarChart;
+export default BarChart2;

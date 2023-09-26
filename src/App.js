@@ -12,8 +12,8 @@ import Scatter from './Echarts/Scatter';
 import Node from './Components/Node';
 import TreeMap from './Echarts/TreeMap';
 import DiskTreeMap from './Echarts/DiskTreeMap';
-import nodes from './nodes.json'
-//import BarChart from './Echarts/BarChart'
+import BarChart from './Echarts/BarChart'
+import BarChart2 from './Echarts/BarChart2';
 
 function App() {
   const [Option, setOption] = useState(null);
@@ -142,8 +142,10 @@ function App() {
           </ChildCard>
           <div className="horizontal-flex">
             <ChildCard title="DEGREE" style={{ flex: '1', marginTop: '0', marginRight: '5px' }}>
+              <BarChart></BarChart>
             </ChildCard>
             <ChildCard title="CENTRALITY" style={{ flex: '1', marginTop: '0', marginLeft: '5px' }}>
+              <BarChart2></BarChart2>
             </ChildCard>
           </div>
         </div>
