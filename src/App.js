@@ -165,11 +165,14 @@ function App() {
         </div>
         <div id='color-search' className='card'>
           <h3>Color Search</h3>
-          <TreeMap ></TreeMap>
-          <ChildCard title="NODE STATISTICS">
-            <DiskTreeMap disktreemapdata = {disktreemapdata}></DiskTreeMap>
+          <TreeMap id = "tree-map"/>
+          <ChildCard title="NODE STATISTICS" contentStyle={{height:200}}>
+            <DiskTreeMap 
+              disktreemapdata = {disktreemapdata}
+              isNodeChanged = {isNodeChanged}
+            />
           </ChildCard>
-          <ChildCard title="PAINTING/PIGMENT INFORMATION">
+          <ChildCard title="PAINTING/PIGMENT INFORMATION" id = "info-card">
           </ChildCard>
         </div>
         <div id='multidimensional-linkage-view' className='card'>

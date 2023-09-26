@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import * as echarts from 'echarts';
 
-function DiskTreeMap(disktreemapdata){
-  const [diskdata,setdiskdata] = useState([
+function DiskTreeMap({
+  disktreemapdata, 
+  isNodeChanged
+}) {
+  const [diskdata, setdiskdata] = useState([
     {
       "value": 2,
       "name": "形制",
-      "children":[
+      "children": [
         {
           "value": 2,
           "name": "形",
@@ -59,13 +62,14 @@ function DiskTreeMap(disktreemapdata){
         },
       ]
     },
-])
+  ])
   useEffect(() => {
     // 创建一个ECharts实例并将其挂载到指定的DOM元素上
     const chartContainer = document.getElementById('echarts-disktreemap');
     const chart = echarts.init(chartContainer);
+
     setdiskdata(disktreemapdata)
-    
+
     // 定义图表配置项
     const option = {
       legend: {
@@ -132,13 +136,13 @@ function DiskTreeMap(disktreemapdata){
 
     // 使用配置项渲染图表
     chart.setOption(option);
-    console.log("option",option.series);
+    console.log("option", option.series);
     // console.log('data:',option);
     // 在组件卸载时销毁图表，防止内存泄漏
     return () => {
       chart.dispose();
     };
-  }, [disktreemapdata]);
+  }, [isNodeChanged]);
 
   return (
     <div id="echarts-disktreemap" style={{ width: '100%', height: '100%' }}></div>
