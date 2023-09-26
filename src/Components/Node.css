@@ -37,7 +37,7 @@
 }
   
 .rgb-values span {
-    font-weight: bolder;
-    margin: 0 5px; /* 调整RGB数值之间的间距 */
+    font-weight:bold;
+    margin: 0 3px; /* 调整RGB数值之间的间距 */
     color: #333; /* 数值文本颜色 */
 }

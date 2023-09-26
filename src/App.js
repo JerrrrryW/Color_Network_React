@@ -187,7 +187,7 @@ function App() {
           <ChildCard title="NODE STATISTICS">
             <DiskTreeMap disktreemapdata = {disktreemapdata}></DiskTreeMap>
           </ChildCard>
-          <ChildCard title="PAINTING/PIGMENT INFORMATION">
+          <ChildCard title="PAINTING/PIGMENT INFORMATION" style={{height:'280px',background: 'rgb(244, 237, 229)'}}>
             <Artwork></Artwork>
           </ChildCard>
         </div>

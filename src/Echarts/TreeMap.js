@@ -8,150 +8,89 @@ const TreeMap = () => {
     const chart = echarts.init(chartContainer);
 
     const data = {
-      "name": "flare",
+      "name": "C104",
       itemStyle: {
-        color: 'red', // 设置节点 A 的颜色为红色
+        color: 'rgb(69,130,96)', 
       },
       "children": [
        {
-        "name": "analytics",
+        "name": "C96",
+        itemStyle: {
+          color: 'rgb(101,123,100)', 
+        },
         "children": [
          {
-          "name": "cluster",
+          "name": "C46",
+          itemStyle: {
+            color: 'rgb(127,131,108)', 
+          },
          },
          {
-          "name": "graph",
+          "name": "C119",
+          itemStyle: {
+            color: 'rgb(91,106,77)', 
+          },
          },
-        ]
-       },
-       {
-        "name": "animate",
-        "children": [
-         {"name": "Easing", "value": 17010},
-         {"name": "FunctionSequence", "value": 5842},
          {
-          "name": "interpolate",
+          "name": "C136",
+          itemStyle: {
+            color: 'rgb(96,120,82)', 
+          },
          },
-         {"name": "ISchedulable", "value": 1041},
-         {"name": "Parallel", "value": 5176},
-         {"name": "Pause", "value": 449},
-         {"name": "Scheduler", "value": 5593},
-         {"name": "Sequence", "value": 5534},
-         {"name": "Transition", "value": 9201},
-         {"name": "Transitioner", "value": 19975},
-         {"name": "TransitionEvent", "value": 1116},
-         {"name": "Tween", "value": 6006}
         ]
        },
        {
-        "name": "data",
+        "name": "C99",
+          itemStyle: {
+            color: 'rgb(70,120,116)', 
+          },
         "children": [
-         {
-          "name": "converters","value":1000
-         },
-         {"name": "DataField", "value": 1759},
-         {"name": "DataSchema", "value": 2165},
-         {"name": "DataSet", "value": 586},
-         {"name": "DataSource", "value": 3331},
-         {"name": "DataTable", "value": 772},
-         {"name": "DataUtil", "value": 3322}
+          {
+            "name": "C152",
+            itemStyle: {
+              color: 'rgb(96,129,133)', 
+            },
+           },
+           {
+            "name": "C162",
+            itemStyle: {
+              color: 'rgb(62,99,100)', 
+            },
+           },
         ]
        },
        {
-        "name": "display",
+        "name": "C101",
+        itemStyle: {
+          color: 'rgb(56,102,76)', 
+        },
         "children": [
-         {"name": "DirtySprite", "value": 8833},
-         {"name": "LineSprite", "value": 1732},
-         {"name": "RectSprite", "value": 3623},
-         {"name": "TextSprite", "value": 10066}
+          {
+            "name": "C97",
+            itemStyle: {
+              color: 'rgb(75,96,78)', 
+            },
+           },
+           {
+            "name": "C135",
+            itemStyle: {
+              color: 'rgb(60,90,60)', 
+            },
+           },
         ]
        },
        {
-        "name": "flex",
+        "name": "C136",
+        itemStyle: {
+          color: 'rgb(96,120,82)', 
+        },
         "children": [
-         {"name": "FlareVis", "value": 4116}
-        ]
-       },
-       {
-        "name": "physics",
-        "children": [
-         {"name": "DragForce", "value": 1082},
-         {"name": "GravityForce", "value": 1336},
-         {"name": "IForce", "value": 319},
-         {"name": "NBodyForce", "value": 10498},
-         {"name": "Particle", "value": 2822},
-         {"name": "Simulation", "value": 9983},
-         {"name": "Spring", "value": 2213},
-         {"name": "SpringForce", "value": 1681}
-        ]
-       },
-       {
-        "name": "query",
-        "children": [
-         {"name": "AggregateExpression", "value": 1616},
-         {"name": "And", "value": 1027},
-         {"name": "Arithmetic", "value": 3891},
-         {"name": "Average", "value": 891},
-         {"name": "BinaryExpression", "value": 2893},
-         {"name": "Comparison", "value": 5103},
-         {"name": "CompositeExpression", "value": 3677},
-         {"name": "Count", "value": 781},
-         {"name": "DateUtil", "value": 4141},
-         {"name": "Distinct", "value": 933},
-         {"name": "Expression", "value": 5130},
-         {"name": "ExpressionIterator", "value": 3617},
-         {"name": "Fn", "value": 3240},
-         {"name": "If", "value": 2732},
-         {"name": "IsA", "value": 2039},
-         {"name": "Literal", "value": 1214},
-         {"name": "Match", "value": 3748},
-         {"name": "Maximum", "value": 843},
-         {"name": "Minimum", "value": 843},
-         {"name": "Not", "value": 1554},
-         {"name": "Or", "value": 970},
-         {"name": "Query", "value": 13896},
-         {"name": "Range", "value": 1594},
-         {"name": "StringUtil", "value": 4130},
-         {"name": "Sum", "value": 791},
-         {"name": "Variable", "value": 1124},
-         {"name": "Variance", "value": 1876},
-         {"name": "Xor", "value": 1101}
-        ]
-       },
-       {
-        "name": "scale",
-        "children": [
-         {"name": "IScaleMap", "value": 2105},
-         {"name": "LinearScale", "value": 1316},
-         {"name": "LogScale", "value": 3151},
-         {"name": "OrdinalScale", "value": 3770},
-         {"name": "QuantileScale", "value": 2435},
-         {"name": "QuantitativeScale", "value": 4839},
-         {"name": "RootScale", "value": 1756},
-         {"name": "Scale", "value": 4268},
-         {"name": "ScaleType", "value": 1821},
-         {"name": "TimeScale", "value": 5833}
-        ]
-       },
-       {
-        "name": "util",
-        "children": [
-         {"name": "Arrays", "value": 8258},
-         {"name": "Colors", "value": 10001},
-         {"name": "Dates", "value": 8217},
-         {"name": "Displays", "value": 12555},
-         {"name": "Filter", "value": 2324},
-         {"name": "Geometry", "value": 10993},
-         {"name": "IEvaluable", "value": 335},
-         {"name": "IPredicate", "value": 383},
-         {"name": "IValueProxy", "value": 874},
-         {"name": "Maths", "value": 17705},
-         {"name": "Orientation", "value": 1486},
-         {"name": "Property", "value": 5559},
-         {"name": "Shapes", "value": 19118},
-         {"name": "Sort", "value": 6887},
-         {"name": "Stats", "value": 6557},
-         {"name": "Strings", "value": 22026}
+          {
+            "name": "C133",
+            itemStyle: {
+              color: 'rgb(103,116,61)', 
+            },
+           },
         ]
        },
       ]
@@ -165,14 +104,14 @@ const TreeMap = () => {
       series: [
         {
           label: {
-            show: false
+            show: true
           },
           type: 'tree',
           data: [data],
           top: 1,
           bottom: 1,
           layout: 'radial',
-          symbolSize: 7,
+          symbolSize: 20,
           initialTreeDepth: 3,
           animationDurationUpdate: 750,
           emphasis: {

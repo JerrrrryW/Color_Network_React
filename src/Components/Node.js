@@ -24,6 +24,7 @@ function Node({
     const chart = echarts.init(chartContainer);
     // 定义图表配置项
     const option = {
+      color:['#b6a789'],
       grid: {
         left: 0,
         right: 0,
@@ -85,9 +86,9 @@ function Node({
           <div className="circle-text">{text}</div>
         </div>
         <div className="rgb-values">
-          <span>{rgb.r}</span>
-          <span>{rgb.g}</span>
-          <span>{rgb.b}</span>
+          <span>R:{rgb.r}</span>
+          <span>G:{rgb.g}</span>
+          <span>B:{rgb.b}</span>
         </div>
       </div>
       <div id='node-right' style={{ width: '70%', height: '100%' }}>
