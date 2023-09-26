@@ -92,5 +92,19 @@ h3 {
   
 }
 
+#color-search-2 {
+  display: flex;
+  justify-content: space-between; /* 左右两侧对齐 */
+  align-items: center; /* 垂直居中对齐 */
+  
+}
+
+
+#color-space-2 {
+  display: flex;
+  justify-content: space-between; /* 左右两侧对齐 */
+  align-items: center; /* 垂直居中对齐 */ 
+}
+
 
 

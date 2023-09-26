@@ -1,0 +1,41 @@
+/* ColorConverter.css */
+
+.color-converter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+  }
+  
+  .options {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .option-button {
+    background-color: #f4f7d6;
+    color: rgb(131, 119, 10);
+    border: none;
+    width: 40px;
+    height: 25px;
+    border-radius: 5px;
+    padding: 2px 2px;
+    margin: 0 1px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .option-button:hover {
+    background-color: #f5f1bc;
+  }
+  
+  .option-button.active {
+    background-color: #dad875; /* 选中状态样式 */
+  }
+  
+  .content {
+    text-align: center;
+  }
+  
+  /* 可以根据需要继续定义样式 */
+  

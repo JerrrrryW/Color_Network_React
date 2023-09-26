@@ -15,6 +15,8 @@ import DiskTreeMap from './Echarts/DiskTreeMap';
 import BarChart from './Echarts/BarChart'
 import BarChart2 from './Echarts/BarChart2';
 import Artwork from './Components/Artwork';
+import RGB from './Components/RGB'
+import ColorConverter from './Components/ColorConverter'
 
 function App() {
   const [Option, setOption] = useState(null);
@@ -178,11 +180,15 @@ function App() {
           <HeatMap color={nodename} />
         </div>
         <div id='color-space' className='card'>
-          <h3>Color Space</h3>
+        <div id='color-space-2'>
+          <h3>Color Space</h3><ColorConverter></ColorConverter>
+        </div>
           <Scatter />
         </div>
         <div id='color-search' className='card'>
-          <h3>Color Search</h3>
+          <div id='color-search-2'>
+          <h3>Color Search</h3><RGB></RGB>
+          </div>  
           <TreeMap id = "tree-map"/>
           <ChildCard title="NODE STATISTICS" contentStyle={{height:200}}>
             <DiskTreeMap 
