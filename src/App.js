@@ -14,6 +14,7 @@ import TreeMap from './Echarts/TreeMap';
 import DiskTreeMap from './Echarts/DiskTreeMap';
 import BarChart from './Echarts/BarChart'
 import BarChart2 from './Echarts/BarChart2';
+import Artwork from './Components/Artwork';
 
 function App() {
   const [Option, setOption] = useState(null);
@@ -172,7 +173,7 @@ function App() {
             <DiskTreeMap disktreemapdata = {disktreemapdata}></DiskTreeMap>
           </ChildCard>
           <ChildCard title="PAINTING/PIGMENT INFORMATION">
-            
+            <Artwork></Artwork>
           </ChildCard>
         </div>
         <div id='multidimensional-linkage-view' className='card'>

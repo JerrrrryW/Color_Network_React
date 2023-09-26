@@ -9,6 +9,9 @@ const TreeMap = () => {
 
     const data = {
       "name": "flare",
+      itemStyle: {
+        color: 'red', // 设置节点 A 的颜色为红色
+      },
       "children": [
        {
         "name": "analytics",

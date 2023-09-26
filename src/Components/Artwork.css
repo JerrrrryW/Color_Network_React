@@ -1,0 +1,55 @@
+/* ArtworkDetails.css */
+
+/* 整个容器 */
+.artwork-container {
+  display: flex; /* 使用 flex 布局 */
+}
+
+/* 左侧 40% 部分显示画作 */
+.artwork {
+  flex: 40%; /* 占据 40% 的宽度 */
+}
+
+/* 画作图片 */
+.artwork-image {
+  max-width: 100%; /* 图片最大宽度为容器宽度 */
+  height: auto; /* 自适应高度 */
+}
+
+/* 右侧 60% 部分分为上下两部分 */
+.artwork-details {
+  flex: 60%; /* 占据 60% 的宽度 */
+  padding: 0px; /* 添加一些内边距 */
+  display: flex; /* 使用 flex 布局 */
+  flex-direction: column; /* 垂直布局 */
+  justify-content: space-between; /* 上下对齐布局 */
+}
+
+/* 上半部分显示画作的基本信息 */
+.artwork-info {
+  padding: 0px; /* 添加内边距 */
+  border: 1px solid #ccc; /* 边框 */
+}
+
+/* 下半部分显示画作的背景故事 */
+.artwork-story {
+  margin-top: 0px; /* 上边距 */
+}
+
+/* 标题样式 */
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* 其他文本样式 */
+p {
+  font-size: 8px;
+  margin-bottom: 5px;
+}
+
+/* 背景故事标题样式 */
+h3 {
+  font-size: 10px;
+  margin-bottom: 5px;
+}
