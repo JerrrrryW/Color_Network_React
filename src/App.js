@@ -29,6 +29,9 @@ function App() {
     {
       "value": 4,
       "name": "形制",
+      itemStyle: {
+        color: '#7a8645', // 设置 Category A 块的颜色为红色
+      },
       "children": [
         {
           "value":1,
@@ -51,6 +54,9 @@ function App() {
     {
       "value": 2,
       "name": "材质",
+      itemStyle: {
+        color: '#943328', 
+      },
       "children": [
         {
           "value": 1,
@@ -65,6 +71,9 @@ function App() {
     {
       "value": 7,
       "name": "类型",
+      itemStyle: {
+        color: '#879498', 
+      },
       "children": [
         {
           "value": 1,
@@ -100,6 +109,9 @@ function App() {
     {
       "value": 1,
       "name": "朝代",
+      itemStyle: {
+        color: '#85523f', 
+      },
       "children": [
         {
           "value": 1,
@@ -110,6 +122,9 @@ function App() {
     {
       "value": 1,
       "name": "题材",
+      itemStyle: {
+        color: '#8b693e', 
+      },
       "children": [
         {
           "value": 1,

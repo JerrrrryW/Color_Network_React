@@ -4,11 +4,14 @@ import * as echarts from 'echarts';
 function DiskTreeMap(disktreemapdata){
   const [diskdata,setdiskdata] = useState([
     {
-      "value": 2,
+      "value": 20,
       "name": "形制",
+      itemStyle: {
+        color: '#7a8645', 
+      },
       "children":[
         {
-          "value": 2,
+          "value": 20,
           "name": "形",
         },
       ]
@@ -40,21 +43,21 @@ function DiskTreeMap(disktreemapdata){
     },
 
     {
-      "value": 2,
+      "value": 10,
       "name": "朝代",
       "children": [
         {
-          "value": 2,
+          "value": 10,
           "name": "朝代",
         },
       ]
     },
     {
-      "value": 5,
+      "value": 10,
       "name": "题材",
       "children": [
         {
-          "value": 5,
+          "value": 10,
           "name": "山水",
         },
       ]
@@ -106,7 +109,7 @@ function DiskTreeMap(disktreemapdata){
             },
             {
               itemStyle: {
-                borderColor: '#AAA',
+                borderColor: '#efe3d0',
                 borderWidth: 5,
                 gapWidth: 0.5
               },
@@ -141,7 +144,7 @@ function DiskTreeMap(disktreemapdata){
   }, [disktreemapdata]);
 
   return (
-    <div id="echarts-disktreemap" style={{ width: '100%', height: '100%' }}></div>
+    <div id="echarts-disktreemap" style={{ width: '100%', height: '200px' }}></div>
   );
 };
 
