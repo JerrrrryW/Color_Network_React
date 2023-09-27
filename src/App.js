@@ -18,14 +18,14 @@ import Artwork from './Components/Artwork';
 
 function App() {
   const [Option, setOption] = useState(null);
-  const [nodename, setnodename] = useState('C41');
+  const [selectedNodeNames, setSelectedNodeNames] = useState([]);
   const [nodeData, setNodeData] = useState({
     color: '#7f0000',
     name: 'C41',
     rgb: { r: 127, g: 0, b: 0 },
     bardata: [10, 0.01, 0.47, 1, 7.14],
   });
-  const [disktreemapdata,setdisktreemapdata] = useState(        [
+  const [disktreemapdata,setdisktreemapdata] = useState([
     {
       "value": 4,
       "name": "形制",
@@ -169,13 +169,19 @@ function App() {
           <div id="color-network-2">
             <h3>Color Network</h3><button onClick={setSelectedOption2}>Transform</button>
           </div>
-          <RelationshipGraph Option={Option} setIsNodeChanged={setIsNodeChanged} setNodeData={setNodeData} setdisktreemapdata={setdisktreemapdata}/>
+          <RelationshipGraph 
+            Option={Option} 
+            setIsNodeChanged={setIsNodeChanged} 
+            setNodeData={setNodeData} 
+            setdisktreemapdata={setdisktreemapdata}
+            setSelectedNodeNames={setSelectedNodeNames}
+            />
         </div>
         <div id='node-heatmap' className='card'>
           <div id="node-heatmap-2">
             <h3>Node Heatmap</h3><button>Compute</button>
           </div>
-          <HeatMap color={nodename} />
+          <HeatMap colors={selectedNodeNames} />
         </div>
         <div id='color-space' className='card'>
           <h3>Color Space</h3>

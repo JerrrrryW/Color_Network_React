@@ -8,6 +8,7 @@ const RelationshipGraph = React.memo(({
   setIsNodeChanged,
   setNodeData,
   setdisktreemapdata,
+  setSelectedNodeNames,
 }) => {
   function rgbToHex(r, g, b) {
     // 使用toString(16)将数值转换为十六进制，并确保结果为两位数
@@ -244,6 +245,7 @@ const RelationshipGraph = React.memo(({
         ];
         console.log("SENT:",disktreemapdata)
         setNodeData(nodeData)
+        setSelectedNodeNames(current => [...current, params.data.name])
         setdisktreemapdata(disktreemapdata)
       }
     });
