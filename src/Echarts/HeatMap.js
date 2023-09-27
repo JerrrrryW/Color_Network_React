@@ -3,6 +3,7 @@ import * as echarts from 'echarts';
 
 const HeatMap = ({ colors }) => {
     const xdata = colors;  // Use the colors array for x-axis
+    // const colors = ['C42', 'C38', 'C36', 'C41', 'C33', 'C40', 'C35', 'C34'];
     const ydata = [
         'C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'C9', 'C10', 'C11', 'C12', 'C13', 'C14', 'C15'
     ];
