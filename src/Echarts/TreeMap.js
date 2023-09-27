@@ -106,6 +106,7 @@ const TreeMap = () => {
           label: {
             show: true
           },
+          roam: true, // 启用缩放和平移功能
           type: 'tree',
           data: [data],
           top: 1,

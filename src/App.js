@@ -15,6 +15,9 @@ import DiskTreeMap from './Echarts/DiskTreeMap';
 import BarChart from './Echarts/BarChart'
 import BarChart2 from './Echarts/BarChart2';
 import Artwork from './Components/Artwork';
+import RGB from './Components/RGB'
+import ColorConverter from './Components/ColorConverter'
+import Slider from './Components/Slider'
 
 function App() {
   const [Option, setOption] = useState(null);
@@ -167,7 +170,7 @@ function App() {
         </div>
         <div id='color-network' className='card'>
           <div id="color-network-2">
-            <h3>Color Network</h3><button onClick={setSelectedOption2}>Transform</button>
+            <h3>Color Network</h3><Slider></Slider> <button onClick={setSelectedOption2}>Transform</button>
           </div>
           <RelationshipGraph 
             Option={Option} 
@@ -184,11 +187,15 @@ function App() {
           <HeatMap colors={selectedNodeNames} />
         </div>
         <div id='color-space' className='card'>
-          <h3>Color Space</h3>
+        <div id='color-space-2'>
+          <h3>Color Space</h3><ColorConverter></ColorConverter>
+        </div>
           <Scatter />
         </div>
         <div id='color-search' className='card'>
-          <h3>Color Search</h3>
+          <div id='color-search-2'>
+          <h3>Color Search</h3><RGB></RGB>
+          </div>  
           <TreeMap id = "tree-map"/>
           <ChildCard title="NODE STATISTICS" contentStyle={{height:200}}>
             <DiskTreeMap 

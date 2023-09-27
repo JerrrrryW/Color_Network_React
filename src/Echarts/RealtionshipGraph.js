@@ -52,7 +52,7 @@ const RelationshipGraph = React.memo(({
         });
     } else if (option === '2') {
       // Fetch nodes data
-      fetch('/data/nodes4.json')
+      fetch('/data/nodes5.json')
         .then((response) => response.json())
         .then((data) => {
           setNodes(data);
@@ -62,7 +62,7 @@ const RelationshipGraph = React.memo(({
         });
 
       // Fetch links data
-      fetch('/data/links4.json')
+      fetch('/data/links5.json')
         .then((response) => response.json())
         .then((data) => {
           setLinks(data);
