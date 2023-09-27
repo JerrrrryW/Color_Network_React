@@ -1,32 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import * as echarts from 'echarts';
+import jsondata from '../nodes.json'
 
-const Sankey = () => {
+const Sankey = ({colors}) => {
   const [nodes, setNodes] = useState([]);
   const [links, setLinks] = useState([]);
 
   useEffect(() => {
-    fetch('/data/8_nodes.json')
+    console.log(colors.length)
+    fetch('/data/'+colors.length+'_nodes.json')
     .then((response) => response.json())
     .then((data) => {
-      console.log(data)
+      console.log("nodes:",data)
       setNodes(data);
     })
     .catch((error) => {
       console.error('Error loading nodes JSON:', error);
     });
-    fetch('/data/8_links.json')
+    fetch('/data/'+colors.length+'_links.json')
     .then((response) => response.json())
     .then((data) => {
-      console.log(data)
+      console.log("links:",data)
       setLinks(data);
     })
     .catch((error) => {
       console.error('Error loading links JSON:', error);
     });
-  }, []);
+  }, [colors]);
   
   useEffect(() => {
+
     // 在组件加载后初始化ECharts实例
     const chart = echarts.init(document.getElementById('echarts-sankey'));
     
@@ -51,7 +54,7 @@ const Sankey = () => {
               },
               lineStyle: {
                 color: 'source',
-                opacity: 0.6
+                opacity: 0.2
               }
             },
             {
@@ -71,7 +74,7 @@ const Sankey = () => {
               },
               lineStyle: {
                 color: 'source',
-                opacity: 0.6
+                opacity: 0.2
               }
             },
             {
@@ -81,7 +84,7 @@ const Sankey = () => {
               },
               lineStyle: {
                 color: 'source',
-                opacity: 0.6
+                opacity: 0.2
               }
             }
           ],
@@ -99,7 +102,7 @@ const Sankey = () => {
     return () => {
       chart.dispose();
     };
-  },[nodes, links]);
+  },[nodes, links, colors]);
 
   return <div id="echarts-sankey" style={{ width: '100%', height: '100%' }} />;
 };

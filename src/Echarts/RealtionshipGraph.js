@@ -3,8 +3,8 @@ import ReactEcharts from 'echarts-for-react';
 import jsondata from '../nodes.json'
 
 
-const RelationshipGraph = React.memo(({ 
-  Option , 
+const RelationshipGraph = React.memo(({
+  Option,
   setIsNodeChanged,
   setNodeData,
   setdisktreemapdata,
@@ -94,42 +94,42 @@ const RelationshipGraph = React.memo(({
     }
   };
 
-  
+
 
   const ecOption = {
-      tooltip: {},
-      animationDurationUpdate: 500,
-      animationEasingUpdate: 'quinticInOut',
-      series: [
-        {
-          type: 'graph',
-          layout: 'force',
-          roam: true,
-          force: {
-            repulsion: 400,
-            gravity: 0.1,
-          },
-          label: {
-            show: true,
-            fontSize: 6,
-            color: "rgba(0, 0, 0, 0.7)",
-            formatter: function (params) {
-              if (params.data.symbolSize === 0) {
-                return params.data.value;
-              }
-
-            }
-          },
-          symbolSize: 50,
-          edgeSymbol: ['circle'],
-          edgeSymbolSize: [4, 10],
-          edgeLabel: {
-            normal: { show: false },
-          },
-          data: nodes, // Use the loaded nodes data here
-          links: links, // Use the loaded links data here
+    tooltip: {},
+    animationDurationUpdate: 500,
+    animationEasingUpdate: 'quinticInOut',
+    series: [
+      {
+        type: 'graph',
+        layout: 'force',
+        roam: true,
+        force: {
+          repulsion: 400,
+          gravity: 0.1,
         },
-      ],
+        label: {
+          show: true,
+          fontSize: 6,
+          color: "rgba(0, 0, 0, 0.7)",
+          formatter: function (params) {
+            if (params.data.symbolSize === 0) {
+              return params.data.value;
+            }
+
+          }
+        },
+        symbolSize: 50,
+        edgeSymbol: ['circle'],
+        edgeSymbolSize: [4, 10],
+        edgeLabel: {
+          normal: { show: false },
+        },
+        data: nodes, // Use the loaded nodes data here
+        links: links, // Use the loaded links data here
+      },
+    ],
   };
 
   useEffect(() => {
@@ -142,108 +142,123 @@ const RelationshipGraph = React.memo(({
       // console.log("CLICKED:",params)
       if (params.data.name) {
         setIsNodeChanged(current => !current)
-        console.log("CLICKED:",jsondata[params.data.name])
+        console.log("CLICKED:", jsondata[params.data.name])
         const nodeData = {
           name: params.data.name,
           color: rgbToHex(jsondata[params.data.name].r, jsondata[params.data.name].g, jsondata[params.data.name].b),
-          rgb: {r: jsondata[params.data.name].r, g: jsondata[params.data.name].g, b: jsondata[params.data.name].b},
+          rgb: { r: jsondata[params.data.name].r, g: jsondata[params.data.name].g, b: jsondata[params.data.name].b },
           bardata: [jsondata[params.data.name].degree, jsondata[params.data.name].BC, jsondata[params.data.name].CC, jsondata[params.data.name].EC, jsondata[params.data.name].weight],
         }
-        const disktreemapdata = 
-        [
+        const disktreemapdata =
+          [
+            {
+              "value": jsondata[params.data.name].data['立轴'] + jsondata[params.data.name].data['团扇'] + jsondata[params.data.name].data['册页'] + jsondata[params.data.name].data['手卷'],
+              "name": "形制",
+              itemStyle: {
+                color: '#7a8645', // 设置 Category A 块的颜色为红色
+              },
+              "children": [
                 {
-                  "value": jsondata[params.data.name].data['立轴']+jsondata[params.data.name].data['团扇']+jsondata[params.data.name].data['册页']+jsondata[params.data.name].data['手卷'],
-                  "name": "形制",
-                  "children": [
-                    {
-                      "value": jsondata[params.data.name].data['立轴'],
-                      "name": "立轴",
-                    },
-                    {
-                      "value": jsondata[params.data.name].data['团扇'],
-                      "name": "团扇",
-                    },
-                    {
-                      "value": jsondata[params.data.name].data['册页'],
-                      "name": "册页",
-                    },
-                    {
-                      "value": jsondata[params.data.name].data['手卷'],
-                      "name": "手卷",
-                    },
-                  ]
+                  "value": jsondata[params.data.name].data['立轴'],
+                  "name": "立轴",
                 },
                 {
-                  "value": jsondata[params.data.name].data['绢本']+jsondata[params.data.name].data['纸本'],
-                  "name": "材质",
-                  "children": [
-                    {
-                      "value": jsondata[params.data.name].data['绢本'],
-                      "name": "绢本",
-                    },
-                    {
-                      "value": jsondata[params.data.name].data['纸本'],
-                      "name": "纸本",
-                    },
-                  ]
+                  "value": jsondata[params.data.name].data['团扇'],
+                  "name": "团扇",
                 },
                 {
-                  "value": jsondata[params.data.name].data['大青绿']+jsondata[params.data.name].data['浅设色']+jsondata[params.data.name].data['水墨']+jsondata[params.data.name].data['水墨浅绛']+jsondata[params.data.name].data['线描']+jsondata[params.data.name].data['小青绿']+jsondata[params.data.name].data['重设色'],
-                  "name": "类型",
-                  "children": [
-                    {
-                      "value": jsondata[params.data.name].data['大青绿'],
-                      "name": "大青绿",
-                    },
-                    {
-                      "value": jsondata[params.data.name].data['浅设色'],
-                      "name": "浅设色",
-                    },
-                    {
-                      "value": jsondata[params.data.name].data['水墨'],
-                      "name": "水墨",
-                    },
-                    {
-                      "value": jsondata[params.data.name].data['水墨浅绛'],
-                      "name": "水墨浅绛",
-                    },
-                    {
-                      "value": jsondata[params.data.name].data['线描'],
-                      "name": "线描",
-                    },
-                    {
-                      "value": jsondata[params.data.name].data['小青绿'],
-                      "name": "小青绿",
-                    },
-                    {
-                      "value": jsondata[params.data.name].data['重设色'],
-                      "name": "重设色",
-                    },
-                  ]
+                  "value": jsondata[params.data.name].data['册页'],
+                  "name": "册页",
                 },
-            
+                {
+                  "value": jsondata[params.data.name].data['手卷'],
+                  "name": "手卷",
+                },
+              ]
+            },
+            {
+              "value": jsondata[params.data.name].data['绢本'] + jsondata[params.data.name].data['纸本'],
+              "name": "材质",
+              itemStyle: {
+                color: '#943328', 
+              },
+              "children": [
+                {
+                  "value": jsondata[params.data.name].data['绢本'],
+                  "name": "绢本",
+                },
+                {
+                  "value": jsondata[params.data.name].data['纸本'],
+                  "name": "纸本",
+                },
+              ]
+            },
+            {
+              "value": jsondata[params.data.name].data['大青绿'] + jsondata[params.data.name].data['浅设色'] + jsondata[params.data.name].data['水墨'] + jsondata[params.data.name].data['水墨浅绛'] + jsondata[params.data.name].data['线描'] + jsondata[params.data.name].data['小青绿'] + jsondata[params.data.name].data['重设色'],
+              "name": "类型",
+              itemStyle: {
+                color: '#879498', 
+              },
+              "children": [
+                {
+                  "value": jsondata[params.data.name].data['大青绿'],
+                  "name": "大青绿",
+                },
+                {
+                  "value": jsondata[params.data.name].data['浅设色'],
+                  "name": "浅设色",
+                },
+                {
+                  "value": jsondata[params.data.name].data['水墨'],
+                  "name": "水墨",
+                },
+                {
+                  "value": jsondata[params.data.name].data['水墨浅绛'],
+                  "name": "水墨浅绛",
+                },
+                {
+                  "value": jsondata[params.data.name].data['线描'],
+                  "name": "线描",
+                },
+                {
+                  "value": jsondata[params.data.name].data['小青绿'],
+                  "name": "小青绿",
+                },
+                {
+                  "value": jsondata[params.data.name].data['重设色'],
+                  "name": "重设色",
+                },
+              ]
+            },
+
+            {
+              "value": jsondata[params.data.name].data.id.length,
+              "name": "朝代",
+              itemStyle: {
+                color: '#85523f', 
+              },
+              "children": [
                 {
                   "value": jsondata[params.data.name].data.id.length,
-                  "name": "朝代",
-                  "children": [
-                    {
-                      "value": jsondata[params.data.name].data.id.length,
-                      "name": "宋朝",
-                    },
-                  ]
+                  "name": "宋朝",
                 },
+              ]
+            },
+            {
+              "value": jsondata[params.data.name].data.id.length,
+              "name": "题材",
+              itemStyle: {
+                color: '#8b693e', 
+              },
+              "children": [
                 {
                   "value": jsondata[params.data.name].data.id.length,
-                  "name": "题材",
-                  "children": [
-                    {
-                      "value": jsondata[params.data.name].data.id.length,
-                      "name": "山水",
-                    },
-                  ]
+                  "name": "山水",
                 },
-        ];
-        console.log("SENT:",disktreemapdata)
+              ]
+            },
+          ];
+        console.log("SENT:", disktreemapdata)
         setNodeData(nodeData)
         setSelectedNodeNames(current => [...current, params.data.name])
         setdisktreemapdata(disktreemapdata)

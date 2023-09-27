@@ -209,7 +209,7 @@ function App() {
         </div>
         <div id='multidimensional-linkage-view' className='card'>
           <h3>Multidimensional Linkage View</h3>
-          <Sankey />
+          <Sankey colors={selectedNodeNames} />
         </div>
       </div>
     </div>
