@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import './Slider.css'; // 引入外部 CSS 文件
 
-const Slider = () => {
+const Slider = ({setSelected}) => {
   const [sliderValue, setSliderValue] = useState(1);
 
   const handleSliderChange = (event) => {
     const newValue = parseFloat(event.target.value);
     setSliderValue(newValue);
+    setSelected(newValue);
   };
 
   return (

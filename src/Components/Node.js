@@ -7,10 +7,10 @@ function Node({
   isNodeChanged,
 }) {
 
-  const [color, setcolor] = useState('#7f0000');
-  const [text, settext] = useState('C41');
-  const [rgb, setrgb] = useState({r:127,g:0,b:0});
-  const [bardata, setbardata] = useState([10, 0.01, 0.47, 1, 7.14]);
+  const [color, setcolor] = useState('#ffffff');
+  const [text, settext] = useState('C');
+  const [rgb, setrgb] = useState({r:255,g:255,b:255});
+  const [bardata, setbardata] = useState([1, 1, 1, 1, 1]);
 
   useEffect(() => {
 

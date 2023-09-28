@@ -38,14 +38,14 @@ function Toolbar({ setSelectedOption }) {
                     <option>Option C</option>
                     <option>Option D</option>
                 </select>
-                <select>
+                <select value={selectedOption}>
                     <option>形制 Shape　　▼</option>
                     <option>Option A</option>
                     <option>Option B</option>
                     <option>Option C</option>
                     <option>Option D</option>
                 </select> 
-                <select value={selectedOption} onChange={handleOptionChange}>
+                <select onChange={handleOptionChange}>
                     <option>ΔE　　▼</option>
                     <option>1</option>
                     <option>3</option>

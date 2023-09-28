@@ -30,7 +30,7 @@ const RelationshipGraph = React.memo(({
   const [links, setLinks] = useState([]);
   const getChartData = (option) => {
     // 根据不同选项返回相应数据
-    if (option === '3') {
+    if (option === 3) {
       // Fetch nodes data
       fetch('/data/nodes3.json')
         .then((response) => response.json())
@@ -50,7 +50,47 @@ const RelationshipGraph = React.memo(({
         .catch((error) => {
           console.error('Error loading links JSON:', error);
         });
-    } else if (option === '2') {
+    } else if (option === 2) {
+      // Fetch nodes data
+      fetch('/data/nodes2.json')
+        .then((response) => response.json())
+        .then((data) => {
+          setNodes(data);
+        })
+        .catch((error) => {
+          console.error('Error loading nodes JSON:', error);
+        });
+
+      // Fetch links data
+      fetch('/data/links2.json')
+        .then((response) => response.json())
+        .then((data) => {
+          setLinks(data);
+        })
+        .catch((error) => {
+          console.error('Error loading links JSON:', error);
+        });
+    }else if (option === 4) {
+      // Fetch nodes data
+      fetch('/data/nodes4.json')
+        .then((response) => response.json())
+        .then((data) => {
+          setNodes(data);
+        })
+        .catch((error) => {
+          console.error('Error loading nodes JSON:', error);
+        });
+
+      // Fetch links data
+      fetch('/data/links4.json')
+        .then((response) => response.json())
+        .then((data) => {
+          setLinks(data);
+        })
+        .catch((error) => {
+          console.error('Error loading links JSON:', error);
+        });
+    }else if (option >= 5) {
       // Fetch nodes data
       fetch('/data/nodes5.json')
         .then((response) => response.json())

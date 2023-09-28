@@ -40,6 +40,7 @@ const Sankey = ({colors}) => {
       },
       series: [
         {
+          right: "5%",
           type: 'sankey',
           data: nodes,
           links: links,

@@ -109,10 +109,10 @@ const TreeMap = () => {
           roam: true, // 启用缩放和平移功能
           type: 'tree',
           data: [data],
-          top: 1,
-          bottom: 1,
+          top: 20,
+          bottom: 50,
           layout: 'radial',
-          symbolSize: 20,
+          symbolSize: 15,
           initialTreeDepth: 3,
           animationDurationUpdate: 750,
           emphasis: {
@@ -133,7 +133,7 @@ const TreeMap = () => {
   }, []);
 
   return (
-    <div id="echarts-treemap" style={{ width: '100%', height: '40%' }}></div>
+    <div id="echarts-treemap" style={{ width: '100%', height: '34%' }}></div>
   );
 };
 

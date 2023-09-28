@@ -1,18 +1,17 @@
 import React, { useEffect } from 'react';
 import * as echarts from 'echarts';
 
-const BarChart2 = () => {
+function BarChart2(){
   useEffect(() => {
     // 创建一个ECharts实例并将其挂载到指定的DOM元素上
     const chartContainer = document.getElementById('echarts-bar-chart2');
     const chart = echarts.init(chartContainer);
-
     // 定义图表配置项
     const option = {
       grid: {
         left: 0,
         right: 0,
-        bottom: -10,
+        bottom: -25,
         top:0,
         containLabel: true
       },
@@ -160,7 +159,7 @@ const BarChart2 = () => {
   }, []);
 
   return (
-    <div id="echarts-bar-chart2" style={{ width: '100%', height: '350px' }}></div>
+    <div id="echarts-bar-chart2" style={{ width: '100%', height: '320px'}}></div>
   );
 };
 

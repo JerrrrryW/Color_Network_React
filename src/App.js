@@ -20,12 +20,17 @@ import ColorConverter from './Components/ColorConverter'
 import Slider from './Components/Slider'
 
 function App() {
-  const [Option, setOption] = useState(null);
+  const [Option, setOption] = useState(1);
+  const [barchart2show,setbarchart2show] = useState(false)
+  const [barchartshow,setbarchartshow] = useState(false)
+  const [treemapshow,settreemapshow] = useState(false)
+  const [artworkshow,setartworkshow] = useState(false)
+  const [heatmapshow,setheatmapshow] = useState(false)
   const [selectedNodeNames, setSelectedNodeNames] = useState([]);
   const [nodeData, setNodeData] = useState({
-    color: '#7f0000',
-    name: 'C41',
-    rgb: { r: 127, g: 0, b: 0 },
+    color: '#ffffff',
+    name: 'C',
+    rgb: { r: '/', g: '/', b: '/' },
     bardata: [10, 0.01, 0.47, 1, 7.14],
   });
   const [disktreemapdata,setdisktreemapdata] = useState([
@@ -138,17 +143,34 @@ function App() {
 ]);
   const [isNodeChanged, setIsNodeChanged] = useState(false);
 
-  const setSelectedOption = (data) => {
-    setOption(data);
+  const setSelectedOption = () => {
+    const t = Option + 1
+    setOption(t);
+    if (t>=20){
+      setbarchart2show(true)
+      setbarchartshow(true)
+    }
   }
-  const setSelectedOption2 = () => {
-    setOption('2');
+
+const handleKeyDown = (event) => {
+    if (event.key === 'a') {
+      settreemapshow(true);
+    }
+    if (event.key === 's') {
+setartworkshow(true)
+    }
+    if (event.key === 'd') {
+      setheatmapshow(true)
+          }
   }
+  // const setSelectedOption2 = () => {
+  //   setOption('2');
+  // }
 
 
 
   return (
-    <div className="App">
+    <div className="App" tabIndex={0} onKeyDown={handleKeyDown}>
       <div className="header">
         <h2>CHINESE PAINTING COLOR VISUALIZATION PLATFORM</h2>
       </div>
@@ -161,16 +183,21 @@ function App() {
           </ChildCard>
           <div className="horizontal-flex">
             <ChildCard title="DEGREE" style={{ flex: '1', marginTop: '0', marginRight: '5px' }}>
-              <BarChart></BarChart>
+              
+              {
+                barchartshow && <BarChart></BarChart>
+              }
             </ChildCard>
-            <ChildCard title="CENTRALITY" style={{ flex: '1', marginTop: '0', marginLeft: '5px' }}>
-              <BarChart2></BarChart2>
+            <ChildCard title="EC" style={{ flex: '1', marginTop: '0', marginLeft: '5px'}}>
+              {
+                barchart2show && <BarChart2></BarChart2>
+              }
             </ChildCard>
           </div>
         </div>
         <div id='color-network' className='card'>
           <div id="color-network-2">
-            <h3>Color Network</h3><Slider></Slider> <button onClick={setSelectedOption2}>Transform</button>
+            <h3>Color Network</h3><Slider setSelected={setSelectedOption}></Slider> <button onClick={setSelectedOption}>Transform</button>
           </div>
           <RelationshipGraph 
             Option={Option} 
@@ -182,9 +209,12 @@ function App() {
         </div>
         <div id='node-heatmap' className='card'>
           <div id="node-heatmap-2">
-            <h3>Node Heatmap</h3><button>Compute</button>
+            <h3>Node Heatmap</h3>
           </div>
-          <HeatMap colors={selectedNodeNames} />
+          {
+                heatmapshow && <HeatMap colors={selectedNodeNames} />
+          }
+          
         </div>
         <div id='color-space' className='card'>
         <div id='color-space-2'>
@@ -196,7 +226,9 @@ function App() {
           <div id='color-search-2'>
           <h3>Color Search</h3><RGB></RGB>
           </div>  
-          <TreeMap id = "tree-map"/>
+          {
+                treemapshow && <TreeMap id = "tree-map"/>
+          }
           <ChildCard title="NODE STATISTICS" contentStyle={{height:200}}>
             <DiskTreeMap 
               disktreemapdata = {disktreemapdata}
@@ -204,11 +236,14 @@ function App() {
             />
           </ChildCard>
           <ChildCard title="PAINTING/PIGMENT INFORMATION" style={{height:'280px',background: 'rgb(244, 237, 229)'}}>
-            <Artwork></Artwork>
+          {
+                artworkshow && <Artwork></Artwork>
+          }
+            
           </ChildCard>
         </div>
         <div id='multidimensional-linkage-view' className='card'>
-          <h3>Multidimensional Linkage View</h3>
+          <h3>Color Attribute Distribution View </h3>
           <Sankey colors={selectedNodeNames} />
         </div>
       </div>

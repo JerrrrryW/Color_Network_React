@@ -12,7 +12,7 @@ const BarChart = () => {
       grid: {
         left: 0,
         right: 0,
-        bottom: -10,
+        bottom: -25,
         top:0,
         containLabel: true
       },
@@ -160,7 +160,7 @@ const BarChart = () => {
   }, []);
 
   return (
-    <div id="echarts-bar-chart" style={{ width: '100%', height: '350px' }}></div>
+    <div id="echarts-bar-chart" style={{ width: '100%', height: '320px' }}></div>
   );
 };
 

@@ -7,60 +7,60 @@ function DiskTreeMap({
 }) {
   const [diskdata, setdiskdata] = useState([
     {
-      "value": 20,
+      "value": 0,
       "name": "形制",
       itemStyle: {
         color: '#7a8645', 
       },
       "children":[
         {
-          "value": 20,
+          "value": 0,
           "name": "形",
         },
       ]
     },
 
     {
-      "value": 10,
+      "value": 0,
       "name": "材质",
       "children": [
         {
-          "value": 5,
+          "value": 0,
           "name": "绢本1",
         },
         {
-          "value": 5,
+          "value": 0,
           "name": "绢本2",
         },
       ]
     },
     {
-      "value": 2,
+      "value": 0,
       "name": "类型",
       "children": [
         {
-          "value": 2,
+          "value": 0,
           "name": "重设色",
         },
       ]
     },
 
     {
-      "value": 10,
+      "value": 0,
       "name": "朝代",
       "children": [
         {
-          "value": 10,
+          "value": 0,
           "name": "朝代",
         },
       ]
     },
     {
-      "value": 10,
+      "value": 0,
       "name": "题材",
       "children": [
         {
-          "value": 10,
+          "value": 0,
           "name": "山水",
         },
       ]
