@@ -4,6 +4,8 @@
     border-radius: 5px; /* 圆角半径，根据需要调整 */
     width: auto; /* 卡片宽度，根据需要调整 */
     margin: 10px; /* 外边距，根据需要调整 */
+    display: flex;
+    flex-direction: column;
   }
   
   .childcard-header {
@@ -21,5 +23,6 @@
     padding: 10px; /* 内容区域内边距，根据需要调整 */
     display: flex;
     flex-direction: column;
+    flex: 1;
   }
   

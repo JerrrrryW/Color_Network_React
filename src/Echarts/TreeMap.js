@@ -133,7 +133,7 @@ const TreeMap = () => {
   }, []);
 
   return (
-    <div id="echarts-treemap" style={{ width: '100%', height: '34%' }}></div>
+    <div id="echarts-treemap" style={{ width: '100%', height: '100%' }}></div>
   );
 };
 

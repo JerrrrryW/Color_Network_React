@@ -21,11 +21,11 @@ import Slider from './Components/Slider'
 
 function App() {
   const [Option, setOption] = useState(1);
-  const [barchart2show,setbarchart2show] = useState(false)
-  const [barchartshow,setbarchartshow] = useState(false)
-  const [treemapshow,settreemapshow] = useState(false)
-  const [artworkshow,setartworkshow] = useState(false)
-  const [heatmapshow,setheatmapshow] = useState(false)
+  const [barchart2show, setbarchart2show] = useState(true)
+  const [barchartshow, setbarchartshow] = useState(true)
+  const [treemapshow, settreemapshow] = useState(true)
+  const [artworkshow, setartworkshow] = useState(true)
+  const [heatmapshow, setheatmapshow] = useState(true)
   const [selectedNodeNames, setSelectedNodeNames] = useState([]);
   const [nodeData, setNodeData] = useState({
     color: '#ffffff',
@@ -33,7 +33,7 @@ function App() {
     rgb: { r: '/', g: '/', b: '/' },
     bardata: [10, 0.01, 0.47, 1, 7.14],
   });
-  const [disktreemapdata,setdisktreemapdata] = useState([
+  const [disktreemapdata, setdisktreemapdata] = useState([
     {
       "value": 4,
       "name": "形制",
@@ -42,7 +42,7 @@ function App() {
       },
       "children": [
         {
-          "value":1,
+          "value": 1,
           "name": "立轴",
         },
         {
@@ -63,7 +63,7 @@ function App() {
       "value": 2,
       "name": "材质",
       itemStyle: {
-        color: '#943328', 
+        color: '#943328',
       },
       "children": [
         {
@@ -80,7 +80,7 @@ function App() {
       "value": 7,
       "name": "类型",
       itemStyle: {
-        color: '#879498', 
+        color: '#879498',
       },
       "children": [
         {
@@ -118,7 +118,7 @@ function App() {
       "value": 1,
       "name": "朝代",
       itemStyle: {
-        color: '#85523f', 
+        color: '#85523f',
       },
       "children": [
         {
@@ -131,7 +131,7 @@ function App() {
       "value": 1,
       "name": "题材",
       itemStyle: {
-        color: '#8b693e', 
+        color: '#8b693e',
       },
       "children": [
         {
@@ -140,28 +140,28 @@ function App() {
         },
       ]
     },
-]);
+  ]);
   const [isNodeChanged, setIsNodeChanged] = useState(false);
 
   const setSelectedOption = () => {
     const t = Option + 1
     setOption(t);
-    if (t>=20){
+    if (t >= 20) {
       setbarchart2show(true)
       setbarchartshow(true)
     }
   }
 
-const handleKeyDown = (event) => {
+  const handleKeyDown = (event) => {
     if (event.key === 'a') {
       settreemapshow(true);
     }
     if (event.key === 's') {
-setartworkshow(true)
+      setartworkshow(true)
     }
     if (event.key === 'd') {
       setheatmapshow(true)
-          }
+    }
   }
   // const setSelectedOption2 = () => {
   //   setOption('2');
@@ -179,16 +179,16 @@ setartworkshow(true)
         <div id='node-attributes' className='card'>
           <h3>Node Attributes</h3>
           <ChildCard title="CURRENT NODE">
-            <Node nodedata={nodeData} isNodeChanged={isNodeChanged}/>
+            <Node nodedata={nodeData} isNodeChanged={isNodeChanged} />
           </ChildCard>
           <div className="horizontal-flex">
             <ChildCard title="DEGREE" style={{ flex: '1', marginTop: '0', marginRight: '5px' }}>
-              
+
               {
                 barchartshow && <BarChart></BarChart>
               }
             </ChildCard>
-            <ChildCard title="EC" style={{ flex: '1', marginTop: '0', marginLeft: '5px'}}>
+            <ChildCard title="EC" style={{ flex: '1', marginTop: '0', marginLeft: '5px' }}>
               {
                 barchart2show && <BarChart2></BarChart2>
               }
@@ -199,47 +199,53 @@ setartworkshow(true)
           <div id="color-network-2">
             <h3>Color Network</h3><Slider setSelected={setSelectedOption}></Slider> <button onClick={setSelectedOption}>Transform</button>
           </div>
-          <RelationshipGraph 
-            Option={Option} 
-            setIsNodeChanged={setIsNodeChanged} 
-            setNodeData={setNodeData} 
+          <RelationshipGraph
+            Option={Option}
+            setIsNodeChanged={setIsNodeChanged}
+            setNodeData={setNodeData}
             setdisktreemapdata={setdisktreemapdata}
             setSelectedNodeNames={setSelectedNodeNames}
-            />
+          />
         </div>
         <div id='node-heatmap' className='card'>
           <div id="node-heatmap-2">
             <h3>Node Heatmap</h3>
           </div>
           {
-                heatmapshow && <HeatMap colors={selectedNodeNames} />
+            heatmapshow && <HeatMap colors={selectedNodeNames} />
           }
-          
+
         </div>
         <div id='color-space' className='card'>
-        <div id='color-space-2'>
-          <h3>Color Space</h3><ColorConverter></ColorConverter>
-        </div>
+          <div id='color-space-2'>
+            <h3>Color Space</h3><ColorConverter></ColorConverter>
+          </div>
           <Scatter />
         </div>
         <div id='color-search' className='card'>
           <div id='color-search-2'>
-          <h3>Color Search</h3><RGB></RGB>
-          </div>  
+            <h3>Color Search</h3><RGB></RGB>
+          </div>
           {
-                treemapshow && <TreeMap id = "tree-map"/>
+            treemapshow && <TreeMap id="tree-map" />
           }
-          <ChildCard title="NODE STATISTICS" contentStyle={{height:200}}>
-            <DiskTreeMap 
-              disktreemapdata = {disktreemapdata}
-              isNodeChanged = {isNodeChanged}
+          <ChildCard 
+            title="NODE STATISTICS" 
+            id="node-statistics"
+            contentStyle={{ height: 200 }}>
+            <DiskTreeMap
+              disktreemapdata={disktreemapdata}
+              isNodeChanged={isNodeChanged}
             />
           </ChildCard>
-          <ChildCard title="PAINTING/PIGMENT INFORMATION" style={{height:'280px',background: 'rgb(244, 237, 229)'}}>
-          {
-                artworkshow && <Artwork></Artwork>
-          }
-            
+          <ChildCard 
+            title="PAINTING/PIGMENT INFORMATION" 
+            id = "painting-information"
+            style={{ height: '280px', background: 'rgb(244, 237, 229)' }}>
+            {
+              artworkshow && <Artwork></Artwork>
+            }
+
           </ChildCard>
         </div>
         <div id='multidimensional-linkage-view' className='card'>
