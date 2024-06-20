@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "./static/css/main.a5f9809e.css",
-    "main.js": "./static/js/main.23ab4a8e.js",
-    "static/js/787.8b02dd4f.chunk.js": "./static/js/787.8b02dd4f.chunk.js",
-    "static/media/吉祥多子图.png": "./static/media/吉祥多子图.1975623ac379e7c567c6.png",
-    "static/media/瑞鹤图.png": "./static/media/瑞鹤图.c75be03d6f49b062e6b4.png",
-    "static/media/竹雀双兔图.png": "./static/media/竹雀双兔图.50bd43b42be33f628682.png",
-    "static/media/落花游鱼图.png": "./static/media/落花游鱼图.f8b9259c516592004664.png",
-    "index.html": "./index.html",
-    "main.a5f9809e.css.map": "./static/css/main.a5f9809e.css.map",
-    "main.23ab4a8e.js.map": "./static/js/main.23ab4a8e.js.map",
-    "787.8b02dd4f.chunk.js.map": "./static/js/787.8b02dd4f.chunk.js.map"
+    "main.css": "/Color_Network_React/static/css/main.a5f9809e.css",
+    "main.js": "/Color_Network_React/static/js/main.a6db05a9.js",
+    "static/js/787.8b02dd4f.chunk.js": "/Color_Network_React/static/js/787.8b02dd4f.chunk.js",
+    "static/media/吉祥多子图.png": "/Color_Network_React/static/media/吉祥多子图.1975623ac379e7c567c6.png",
+    "static/media/瑞鹤图.png": "/Color_Network_React/static/media/瑞鹤图.c75be03d6f49b062e6b4.png",
+    "static/media/竹雀双兔图.png": "/Color_Network_React/static/media/竹雀双兔图.50bd43b42be33f628682.png",
+    "static/media/落花游鱼图.png": "/Color_Network_React/static/media/落花游鱼图.f8b9259c516592004664.png",
+    "index.html": "/Color_Network_React/index.html",
+    "main.a5f9809e.css.map": "/Color_Network_React/static/css/main.a5f9809e.css.map",
+    "main.a6db05a9.js.map": "/Color_Network_React/static/js/main.a6db05a9.js.map",
+    "787.8b02dd4f.chunk.js.map": "/Color_Network_React/static/js/787.8b02dd4f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a5f9809e.css",
-    "static/js/main.23ab4a8e.js"
+    "static/js/main.a6db05a9.js"
   ]
 }
