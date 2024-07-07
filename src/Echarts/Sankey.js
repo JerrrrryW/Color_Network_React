@@ -7,26 +7,26 @@ const Sankey = ({colors}) => {
   const [links, setLinks] = useState([]);
 
   useEffect(() => {
-    console.log(colors.length)
-    fetch('/data/'+colors.length+'_nodes.json')
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("nodes:",data)
-      setNodes(data);
-    })
-    .catch((error) => {
-      console.error('Error loading nodes JSON:', error);
-    });
-    fetch('/data/'+colors.length+'_links.json')
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("links:",data)
-      setLinks(data);
-    })
-    .catch((error) => {
-      console.error('Error loading links JSON:', error);
-    });
+    console.log(colors.length);
+
+    const loadNodesAndLinks = async () => {
+      try {
+        const nodesModule = await import(`../data/${colors.length}_nodes.json`);
+        const linksModule = await import(`../data/${colors.length}_links.json`);
+        
+        console.log("nodes:", nodesModule.default);
+        setNodes(nodesModule.default);
+        
+        console.log("links:", linksModule.default);
+        setLinks(linksModule.default);
+      } catch (error) {
+        console.error('Error loading JSON:', error);
+      }
+    };
+
+    loadNodesAndLinks();
   }, [colors]);
+
   
   useEffect(() => {
 

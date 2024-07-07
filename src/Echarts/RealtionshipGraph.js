@@ -1,6 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react';
 import ReactEcharts from 'echarts-for-react';
 import jsondata from '../nodes.json'
+import nodes1 from '../data/nodes1.json';
+import links1 from '../data/links1.json';
+import nodes2 from '../data/nodes2.json';
+import links2 from '../data/links2.json';
+import nodes3 from '../data/nodes3.json';
+import links3 from '../data/links3.json';
+import nodes4 from '../data/nodes4.json';
+import links4 from '../data/links4.json';
+import nodes5 from '../data/nodes5.json';
+import links5 from '../data/links5.json';
 
 
 const RelationshipGraph = React.memo(({
@@ -29,108 +39,49 @@ const RelationshipGraph = React.memo(({
   const [nodes, setNodes] = useState([]);
   const [links, setLinks] = useState([]);
   const getChartData = (option) => {
-    // 根据不同选项返回相应数据
+    console.log("Option:", option)
+    // switch (option) {
+    //   case 3:
+    //     setNodes(nodes3);
+    //     setLinks(links3);
+    //     break;
+    //   case 2:
+    //     setNodes(nodes2);
+    //     setLinks(links2);
+    //     break;
+    //   case 4:
+    //     setNodes(nodes4);
+    //     setLinks(links4);
+    //     break;
+    //   case 5:
+    //   case 6:  // Assuming 6 and any value >= 5 should use nodes5 and links5
+    //   case 7:
+    //     setNodes(nodes5);
+    //     setLinks(links5);
+    //     break;
+    //   default:
+    //     setNodes(nodes1);
+    //     setLinks(links1);
+    // }
     if (option === 3) {
-      // Fetch nodes data
-      fetch('/data/nodes3.json')
-        .then((response) => response.json())
-        .then((data) => {
-          setNodes(data);
-        })
-        .catch((error) => {
-          console.error('Error loading nodes JSON:', error);
-        });
-
-      // Fetch links data
-      fetch('/data/links3.json')
-        .then((response) => response.json())
-        .then((data) => {
-          setLinks(data);
-        })
-        .catch((error) => {
-          console.error('Error loading links JSON:', error);
-        });
-    } else if (option === 2) {
-      // Fetch nodes data
-      fetch('/data/nodes2.json')
-        .then((response) => response.json())
-        .then((data) => {
-          setNodes(data);
-        })
-        .catch((error) => {
-          console.error('Error loading nodes JSON:', error);
-        });
-
-      // Fetch links data
-      fetch('/data/links2.json')
-        .then((response) => response.json())
-        .then((data) => {
-          setLinks(data);
-        })
-        .catch((error) => {
-          console.error('Error loading links JSON:', error);
-        });
-    }else if (option === 4) {
-      // Fetch nodes data
-      fetch('/data/nodes4.json')
-        .then((response) => response.json())
-        .then((data) => {
-          setNodes(data);
-        })
-        .catch((error) => {
-          console.error('Error loading nodes JSON:', error);
-        });
-
-      // Fetch links data
-      fetch('/data/links4.json')
-        .then((response) => response.json())
-        .then((data) => {
-          setLinks(data);
-        })
-        .catch((error) => {
-          console.error('Error loading links JSON:', error);
-        });
-    }else if (option >= 5) {
-      // Fetch nodes data
-      fetch('/data/nodes5.json')
-        .then((response) => response.json())
-        .then((data) => {
-          setNodes(data);
-        })
-        .catch((error) => {
-          console.error('Error loading nodes JSON:', error);
-        });
-
-      // Fetch links data
-      fetch('/data/links5.json')
-        .then((response) => response.json())
-        .then((data) => {
-          setLinks(data);
-        })
-        .catch((error) => {
-          console.error('Error loading links JSON:', error);
-        });
+      setNodes(nodes3);
+      setLinks(links3);
+    }
+    else if (option === 2) {
+      setNodes(nodes2);
+      setLinks(links2);
+    }
+    else if (option === 4) {
+      setNodes(nodes4);
+      setLinks(links4);
+    }
+    else if (option >= 5) {
+      setNodes(nodes5);
+      setLinks(links5);
     }
     else {
-      // Fetch nodes data
-      fetch('/data/nodes1.json')
-        .then((response) => response.json())
-        .then((data) => {
-          setNodes(data);
-        })
-        .catch((error) => {
-          console.error('Error loading nodes JSON:', error);
-        });
-
-      // Fetch links data
-      fetch('/data/links1.json')
-        .then((response) => response.json())
-        .then((data) => {
-          setLinks(data);
-        })
-        .catch((error) => {
-          console.error('Error loading links JSON:', error);
-        });
+      setNodes(nodes1);
+      setLinks(links1);
     }
   };
 
